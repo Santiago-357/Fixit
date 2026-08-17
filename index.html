@@ -1,0 +1,522 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport"
+content="width=device-width, initial-scale=1.0">
+
+<title>FixIt — Solve Problems Step by Step</title>
+
+<style>
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: #f6f7fb;
+    color: #111827;
+}
+
+header {
+    padding: 24px 8%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: white;
+    border-bottom: 1px solid #eee;
+}
+
+.logo {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.hero {
+    max-width: 900px;
+    margin: 80px auto;
+    padding: 20px;
+    text-align: center;
+}
+
+.hero h1 {
+    font-size: 54px;
+    margin-bottom: 20px;
+}
+
+.hero span {
+    color: #4f46e5;
+}
+
+.hero p {
+    font-size: 20px;
+    color: #6b7280;
+    margin-bottom: 35px;
+}
+
+.search {
+    display: flex;
+    max-width: 700px;
+    margin: auto;
+    background: white;
+    padding: 8px;
+    border-radius: 14px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+}
+
+.search input {
+    flex: 1;
+    border: none;
+    outline: none;
+    padding: 15px;
+    font-size: 16px;
+}
+
+.search button {
+    border: none;
+    background: #4f46e5;
+    color: white;
+    padding: 15px 25px;
+    border-radius: 10px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.categories {
+    max-width: 900px;
+    margin: 40px auto;
+    padding: 20px;
+}
+
+.categories h2 {
+    margin-bottom: 20px;
+}
+
+.category-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 15px;
+}
+
+.category {
+    background: white;
+    padding: 25px;
+    border-radius: 15px;
+    cursor: pointer;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+}
+
+.category:hover {
+    transform: translateY(-2px);
+}
+
+.results {
+    max-width: 900px;
+    margin: 30px auto;
+    padding: 20px;
+}
+
+.problem {
+    background: white;
+    padding: 20px;
+    margin-bottom: 15px;
+    border-radius: 15px;
+    cursor: pointer;
+}
+
+.problem h3 {
+    margin-bottom: 8px;
+}
+
+.problem p {
+    color: #6b7280;
+}
+
+.solution {
+    max-width: 800px;
+    margin: 40px auto;
+    padding: 30px;
+    background: white;
+    border-radius: 20px;
+    display: none;
+}
+
+.step {
+    padding: 18px;
+    margin: 12px 0;
+    background: #f3f4f6;
+    border-radius: 10px;
+}
+
+.step label {
+    cursor: pointer;
+}
+
+.back {
+    margin-bottom: 20px;
+    cursor: pointer;
+    color: #4f46e5;
+    font-weight: bold;
+}
+
+@media(max-width:700px) {
+
+    .hero h1 {
+        font-size: 40px;
+    }
+
+    .category-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .search {
+        flex-direction: column;
+    }
+
+    .search button {
+        margin-top: 8px;
+    }
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<header>
+
+<div class="logo">
+    🔧 FixIt
+</div>
+
+<div>
+    Free
+</div>
+
+</header>
+
+
+<section class="hero">
+
+<h1>
+    Something broken?
+    <span>Fix it.</span>
+</h1>
+
+<p>
+    Tell us what's wrong and we'll show you what to do.
+</p>
+
+
+<div class="search">
+
+<input
+    id="searchInput"
+    type="text"
+    placeholder="Example: My Wi-Fi is slow..."
+>
+
+<button onclick="searchProblems()">
+    Find a Fix
+</button>
+
+</div>
+
+</section>
+
+
+<section class="categories">
+
+<h2>Popular problems</h2>
+
+<div class="category-grid">
+
+<div class="category"
+onclick="showCategory('computer')">
+💻 Computer
+</div>
+
+<div class="category"
+onclick="showCategory('internet')">
+🌐 Internet
+</div>
+
+<div class="category"
+onclick="showCategory('phone')">
+📱 Phone
+</div>
+
+<div class="category"
+onclick="showCategory('gaming')">
+🎮 Gaming
+</div>
+
+<div class="category"
+onclick="showCategory('school')">
+📚 School
+</div>
+
+<div class="category"
+onclick="showCategory('other')">
+⚙️ Other
+</div>
+
+</div>
+
+</section>
+
+
+<section id="results"
+class="results">
+</section>
+
+
+<section id="solution"
+class="solution">
+
+<div
+class="back"
+onclick="goBack()">
+← Back
+</div>
+
+<h2 id="solutionTitle"></h2>
+
+<p
+id="solutionDescription"
+style="margin:15px 0;color:#6b7280;">
+</p>
+
+<div id="steps"></div>
+
+</section>
+
+
+<script>
+
+const problems = [
+
+{
+title: "My Wi-Fi is slow",
+category: "internet",
+description: "Your internet connection is slower than normal.",
+keywords: ["wifi","internet","slow","connection"],
+steps: [
+"Restart your router and wait 60 seconds.",
+"Move closer to your router and test again.",
+"Disconnect devices you aren't currently using.",
+"Run an internet speed test.",
+"If the speed is still unusually low, contact your internet provider."
+]
+},
+
+{
+title: "My computer is slow",
+category: "computer",
+description: "Your computer is running much slower than usual.",
+keywords: ["computer","pc","slow","laptop"],
+steps: [
+"Restart your computer.",
+"Open Task Manager and check CPU and memory usage.",
+"Close programs you aren't using.",
+"Check how much free storage you have.",
+"Disable unnecessary startup programs."
+]
+},
+
+{
+title: "My phone battery drains quickly",
+category: "phone",
+description: "Your phone battery is losing charge unusually fast.",
+keywords: ["phone","battery","drain","charging"],
+steps: [
+"Check which apps are using the most battery.",
+"Reduce screen brightness.",
+"Disable background activity for unnecessary apps.",
+"Turn off location services for apps that don't need them.",
+"Restart your phone and monitor battery usage."
+]
+},
+
+{
+title: "My game is lagging",
+category: "gaming",
+description: "Your game has low FPS or noticeable lag.",
+keywords: ["game","gaming","lag","fps"],
+steps: [
+"Restart the game.",
+"Close unnecessary background programs.",
+"Check your internet connection if the game is online.",
+"Lower graphics settings.",
+"Update your graphics drivers."
+]
+},
+
+{
+title: "I can't concentrate while studying",
+category: "school",
+description: "You're struggling to stay focused.",
+keywords: ["study","school","focus","concentrate"],
+steps: [
+"Put your phone somewhere you can't easily reach it.",
+"Choose one specific task to complete.",
+"Set a 25-minute timer.",
+"Study until the timer ends.",
+"Take a 5-minute break and repeat."
+]
+}
+
+];
+
+
+function searchProblems() {
+
+const input =
+document.getElementById("searchInput")
+.value
+.toLowerCase();
+
+const matches =
+problems.filter(problem =>
+problem.title.toLowerCase().includes(input) ||
+problem.description.toLowerCase().includes(input) ||
+problem.keywords.some(keyword =>
+keyword.includes(input)
+)
+);
+
+displayResults(matches);
+
+}
+
+
+function showCategory(category) {
+
+const matches =
+problems.filter(problem =>
+problem.category === category
+);
+
+displayResults(matches);
+
+}
+
+
+function displayResults(matches) {
+
+const results =
+document.getElementById("results");
+
+results.innerHTML = "";
+
+if(matches.length === 0) {
+
+results.innerHTML =
+"<p>No fixes found yet. Try describing your problem differently.</p>";
+
+return;
+
+}
+
+matches.forEach(problem => {
+
+const div =
+document.createElement("div");
+
+div.className = "problem";
+
+div.innerHTML = `
+<h3>${problem.title}</h3>
+<p>${problem.description}</p>
+`;
+
+div.onclick = () =>
+showSolution(problem);
+
+results.appendChild(div);
+
+});
+
+}
+
+
+function showSolution(problem) {
+
+document.getElementById("results")
+.style.display = "none";
+
+document.querySelector(".categories")
+.style.display = "none";
+
+document.querySelector(".hero")
+.style.display = "none";
+
+const solution =
+document.getElementById("solution");
+
+solution.style.display = "block";
+
+document.getElementById("solutionTitle")
+.innerText = problem.title;
+
+document.getElementById("solutionDescription")
+.innerText = problem.description;
+
+const steps =
+document.getElementById("steps");
+
+steps.innerHTML = "";
+
+problem.steps.forEach((step,index) => {
+
+const div =
+document.createElement("div");
+
+div.className = "step";
+
+div.innerHTML = `
+<label>
+<input type="checkbox">
+<strong>Step ${index + 1}</strong>
+<br>
+${step}
+</label>
+`;
+
+steps.appendChild(div);
+
+});
+
+}
+
+
+function goBack() {
+
+document.getElementById("solution")
+.style.display = "none";
+
+document.getElementById("results")
+.style.display = "block";
+
+document.querySelector(".categories")
+.style.display = "block";
+
+document.querySelector(".hero")
+.style.display = "block";
+
+}
+
+
+</script>
+
+</body>
+
+</html>
