@@ -1,12 +1,24 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
+
 <meta charset="UTF-8">
+
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>FixIt - Find a Fix</title>
+<title>FixIt — Find a Fix</title>
+
+<meta
+name="description"
+content="FixIt helps you solve everyday technology problems with simple step-by-step solutions."
+>
 
 <style>
+
+/* =========================
+   RESET
+========================= */
 
 * {
     box-sizing: border-box;
@@ -14,309 +26,890 @@
     padding: 0;
 }
 
-body {
-    font-family: Arial, sans-serif;
-    background: #f5f7fb;
-    color: #111827;
+html {
+    scroll-behavior: smooth;
 }
 
+body {
+    font-family:
+        -apple-system,
+        BlinkMacSystemFont,
+        "Segoe UI",
+        Arial,
+        sans-serif;
+
+    background: #f7f8fc;
+
+    color: #111827;
+
+    line-height: 1.6;
+}
+
+
+/* =========================
+   HEADER
+========================= */
+
 header {
-    background: white;
+
+    position: sticky;
+
+    top: 0;
+
+    z-index: 100;
+
+    background: rgba(255,255,255,0.95);
+
+    backdrop-filter: blur(10px);
+
     border-bottom: 1px solid #e5e7eb;
-    padding: 18px 7%;
+
+    padding: 16px 6%;
+
     display: flex;
+
     justify-content: space-between;
+
     align-items: center;
+
 }
 
 .logo {
+
     font-size: 25px;
-    font-weight: bold;
+
+    font-weight: 800;
+
+    letter-spacing: -0.5px;
+
 }
 
 .logo span {
+
     color: #4f46e5;
+
 }
 
 .badge {
+
     background: #eef2ff;
+
     color: #4f46e5;
-    padding: 8px 14px;
-    border-radius: 20px;
-    font-weight: bold;
+
+    padding: 7px 14px;
+
+    border-radius: 50px;
+
+    font-size: 13px;
+
+    font-weight: 700;
+
 }
 
+
+/* =========================
+   HERO
+========================= */
+
 .hero {
+
     text-align: center;
-    padding: 75px 20px 45px;
+
+    padding: 90px 20px 65px;
+
+    background:
+
+        radial-gradient(
+            circle at top,
+            #eef2ff,
+            transparent 55%
+        );
+
+}
+
+.hero-label {
+
+    display: inline-block;
+
+    background: white;
+
+    border: 1px solid #e5e7eb;
+
+    color: #4f46e5;
+
+    padding: 7px 14px;
+
+    border-radius: 50px;
+
+    font-size: 13px;
+
+    font-weight: 700;
+
+    margin-bottom: 20px;
+
 }
 
 .hero h1 {
-    font-size: 52px;
-    margin-bottom: 18px;
+
+    max-width: 850px;
+
+    margin: auto;
+
+    font-size: clamp(42px, 7vw, 68px);
+
+    line-height: 1.05;
+
+    letter-spacing: -2px;
+
 }
 
 .hero h1 span {
+
     color: #4f46e5;
+
 }
 
 .hero p {
+
+    max-width: 650px;
+
+    margin: 22px auto 35px;
+
     color: #6b7280;
+
     font-size: 19px;
-    margin-bottom: 32px;
+
 }
 
+
+/* =========================
+   SEARCH
+========================= */
+
 .search {
-    max-width: 720px;
+
+    max-width: 750px;
+
     margin: auto;
+
     display: flex;
+
     background: white;
+
     padding: 7px;
-    border-radius: 15px;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+
+    border-radius: 16px;
+
+    border: 1px solid #e5e7eb;
+
+    box-shadow:
+        0 15px 40px rgba(0,0,0,0.08);
+
 }
 
 .search input {
+
     flex: 1;
+
     border: none;
+
     outline: none;
-    padding: 16px;
+
+    padding: 17px;
+
     font-size: 16px;
+
+    min-width: 0;
+
 }
 
 .search button {
+
     background: #4f46e5;
+
     color: white;
+
     border: none;
-    border-radius: 10px;
-    padding: 0 25px;
-    font-weight: bold;
+
+    border-radius: 11px;
+
+    padding: 0 28px;
+
+    font-weight: 700;
+
     cursor: pointer;
+
+    transition: 0.2s;
+
 }
 
 .search button:hover {
-    opacity: 0.9;
+
+    transform: translateY(-1px);
+
+    background: #4338ca;
+
 }
+
+
+/* =========================
+   MAIN
+========================= */
 
 .container {
-    max-width: 1000px;
+
+    max-width: 1100px;
+
     margin: auto;
-    padding: 20px;
+
+    padding: 30px 20px 70px;
+
 }
 
-.title {
-    margin: 30px 0 18px;
+.section-title {
+
+    text-align: center;
+
+    margin-bottom: 25px;
+
 }
+
+.section-title h2 {
+
+    font-size: 30px;
+
+    letter-spacing: -0.5px;
+
+}
+
+.section-title p {
+
+    color: #6b7280;
+
+    margin-top: 5px;
+
+}
+
+
+/* =========================
+   CATEGORIES
+========================= */
 
 .categories {
+
     display: grid;
-    grid-template-columns: repeat(5, 1fr);
-    gap: 12px;
+
+    grid-template-columns:
+        repeat(5, 1fr);
+
+    gap: 14px;
+
 }
 
 .category {
+
     background: white;
+
     border: 1px solid #e5e7eb;
-    border-radius: 15px;
-    padding: 25px 10px;
+
+    border-radius: 17px;
+
+    padding: 25px 12px;
+
     text-align: center;
+
     cursor: pointer;
-    transition: 0.2s;
+
+    transition: 0.25s;
+
 }
 
 .category:hover {
-    border-color: #4f46e5;
-    transform: translateY(-2px);
+
+    transform: translateY(-4px);
+
+    border-color: #c7d2fe;
+
+    box-shadow:
+        0 10px 25px rgba(0,0,0,0.06);
+
 }
 
 .icon {
-    font-size: 30px;
-    margin-bottom: 10px;
+
+    font-size: 32px;
+
+    margin-bottom: 9px;
+
 }
 
+.category strong {
+
+    display: block;
+
+}
+
+.category small {
+
+    color: #9ca3af;
+
+}
+
+
+/* =========================
+   HOW IT WORKS
+========================= */
+
+.how {
+
+    max-width: 1100px;
+
+    margin: 0 auto 70px;
+
+    padding: 0 20px;
+
+}
+
+.how-grid {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, 1fr);
+
+    gap: 18px;
+
+}
+
+.how-card {
+
+    background: white;
+
+    border: 1px solid #e5e7eb;
+
+    border-radius: 17px;
+
+    padding: 28px;
+
+}
+
+.how-number {
+
+    width: 38px;
+
+    height: 38px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    background: #eef2ff;
+
+    color: #4f46e5;
+
+    border-radius: 50%;
+
+    font-weight: 800;
+
+    margin-bottom: 18px;
+
+}
+
+.how-card h3 {
+
+    margin-bottom: 8px;
+
+}
+
+.how-card p {
+
+    color: #6b7280;
+
+}
+
+
+/* =========================
+   PROBLEMS
+========================= */
+
 .problems {
-    margin-top: 30px;
+
+    margin-top: 40px;
+
 }
 
 .problem {
+
     background: white;
+
     border: 1px solid #e5e7eb;
-    border-radius: 15px;
-    padding: 20px;
-    margin-bottom: 12px;
+
+    border-radius: 16px;
+
+    padding: 22px;
+
+    margin-bottom: 13px;
+
     cursor: pointer;
+
     transition: 0.2s;
+
 }
 
 .problem:hover {
-    border-color: #4f46e5;
+
+    border-color: #c7d2fe;
+
     transform: translateY(-2px);
+
+    box-shadow:
+        0 8px 20px rgba(0,0,0,0.05);
+
 }
 
 .problem h3 {
-    margin-bottom: 8px;
+
+    margin-bottom: 5px;
+
 }
 
 .problem p {
+
     color: #6b7280;
+
 }
 
 .no-results {
+
     background: white;
+
     border: 1px solid #e5e7eb;
-    border-radius: 15px;
-    padding: 30px;
+
+    border-radius: 16px;
+
+    padding: 35px;
+
     text-align: center;
+
     color: #6b7280;
+
 }
 
+
+/* =========================
+   SOLUTION
+========================= */
+
 .solution {
+
     display: none;
-    max-width: 800px;
-    margin: 45px auto;
+
+    max-width: 820px;
+
+    margin: 55px auto;
+
     padding: 25px;
+
 }
 
 .back {
+
+    display: inline-block;
+
     color: #4f46e5;
-    font-weight: bold;
+
+    font-weight: 700;
+
     cursor: pointer;
+
     margin-bottom: 25px;
+
 }
 
 .solution h2 {
-    font-size: 32px;
-    margin-bottom: 10px;
+
+    font-size: 34px;
+
+    line-height: 1.2;
+
+    margin-bottom: 8px;
+
 }
 
 .description {
+
     color: #6b7280;
+
     margin-bottom: 25px;
+
 }
 
 .step {
+
     background: white;
+
     border: 1px solid #e5e7eb;
-    border-radius: 12px;
-    padding: 20px;
-    margin-bottom: 12px;
+
+    border-radius: 14px;
+
+    padding: 21px;
+
+    margin-bottom: 13px;
+
 }
 
 .step input {
+
     margin-right: 10px;
+
 }
 
+
+/* =========================
+   DIAGNOSIS BUTTONS
+========================= */
+
 .diagnosis-button {
+
     display: block;
+
     width: 100%;
-    padding: 15px;
+
+    padding: 16px;
+
     margin: 10px 0;
+
     border: 1px solid #e5e7eb;
+
     background: white;
-    border-radius: 10px;
+
+    border-radius: 11px;
+
     text-align: left;
+
     cursor: pointer;
+
     font-size: 15px;
+
     transition: 0.2s;
+
 }
 
 .diagnosis-button:hover {
-    border-color: #4f46e5;
+
+    border-color: #818cf8;
+
     background: #f5f3ff;
+
+    transform: translateX(2px);
+
 }
 
+
+/* =========================
+   RESULT BOXES
+========================= */
+
 .result-good {
+
     background: #ecfdf5;
+
     border: 1px solid #a7f3d0;
-    border-radius: 12px;
+
+    border-radius: 14px;
+
     padding: 20px;
+
     margin-bottom: 15px;
+
 }
 
 .result-warning {
+
     background: #fff7ed;
+
     border: 1px solid #fed7aa;
-    border-radius: 12px;
+
+    border-radius: 14px;
+
     padding: 20px;
+
     margin-bottom: 15px;
+
 }
 
 .warning {
+
     background: #fff7ed;
-    padding: 15px;
-    border-radius: 10px;
+
+    border: 1px solid #fed7aa;
+
+    padding: 16px;
+
+    border-radius: 12px;
+
     margin-top: 20px;
+
     color: #9a3412;
+
 }
+
+
+/* =========================
+   FEEDBACK
+========================= */
+
+.feedback {
+
+    background: white;
+
+    border: 1px solid #e5e7eb;
+
+    border-radius: 16px;
+
+    padding: 25px;
+
+    text-align: center;
+
+    margin-top: 25px;
+
+}
+
+.feedback p {
+
+    font-weight: 700;
+
+    margin-bottom: 15px;
+
+}
+
+.feedback button {
+
+    border: 1px solid #e5e7eb;
+
+    background: white;
+
+    padding: 10px 20px;
+
+    border-radius: 10px;
+
+    cursor: pointer;
+
+    margin: 5px;
+
+}
+
+.feedback button:hover {
+
+    background: #f5f3ff;
+
+    border-color: #818cf8;
+
+}
+
+
+/* =========================
+   FOOTER
+========================= */
 
 footer {
+
+    background: #111827;
+
+    color: #9ca3af;
+
     text-align: center;
-    padding: 50px;
-    color: #6b7280;
+
+    padding: 45px 20px;
+
 }
 
-@media(max-width:750px) {
+footer strong {
 
-    .hero h1 {
-        font-size: 40px;
-    }
+    color: white;
+
+}
+
+
+/* =========================
+   MOBILE
+========================= */
+
+@media(max-width:800px) {
 
     .categories {
-        grid-template-columns: repeat(2, 1fr);
+
+        grid-template-columns:
+            repeat(2, 1fr);
+
+    }
+
+    .how-grid {
+
+        grid-template-columns: 1fr;
+
+    }
+
+}
+
+@media(max-width:600px) {
+
+    header {
+
+        padding: 14px 20px;
+
+    }
+
+    .hero {
+
+        padding: 65px 18px 50px;
+
+    }
+
+    .hero h1 {
+
+        letter-spacing: -1px;
+
     }
 
     .search {
+
         flex-direction: column;
+
     }
 
     .search button {
-        height: 50px;
+
+        height: 52px;
+
     }
+
+    .categories {
+
+        grid-template-columns: 1fr 1fr;
+
+    }
+
+}
+
+
+/* =========================
+   FADE ANIMATION
+========================= */
+
+@keyframes fadeIn {
+
+    from {
+
+        opacity: 0;
+
+        transform: translateY(8px);
+
+    }
+
+    to {
+
+        opacity: 1;
+
+        transform: translateY(0);
+
+    }
+
+}
+
+.problem,
+.category,
+.how-card {
+
+    animation:
+        fadeIn 0.35s ease;
 
 }
 
 </style>
+
 </head>
 
 
 <body>
 
 
+<!-- =========================
+     HEADER
+========================= -->
+
 <header>
 
     <div class="logo">
+
         🔧 <span>FixIt</span>
+
     </div>
 
     <div class="badge">
+
         100% Free
+
     </div>
 
 </header>
 
 
+
+<!-- =========================
+     HERO
+========================= -->
+
 <section class="hero">
 
+    <div class="hero-label">
+
+        🛠️ Simple tech help
+
+    </div>
+
+
     <h1>
+
         Got a problem?
+
         <span>Let's fix it.</span>
+
     </h1>
 
+
     <p>
-        Find simple step-by-step solutions for everyday technology problems.
+
+        Find simple, practical solutions to everyday
+        technology problems — without the complicated stuff.
+
     </p>
+
 
     <div class="search">
 
         <input
+
             id="searchInput"
+
             type="text"
+
             placeholder="Example: My laptop is really slow..."
-            onkeydown="if(event.key === 'Enter') searchProblems()"
+
+            onkeydown="
+                if(event.key === 'Enter')
+                searchProblems()
+            "
+
         >
 
+
         <button onclick="searchProblems()">
+
             Find a Fix
+
         </button>
 
     </div>
@@ -324,57 +917,100 @@ footer {
 </section>
 
 
+
+<!-- =========================
+     MAIN
+========================= -->
+
 <div class="container">
 
-    <h2 class="title">
-        Browse problems
-    </h2>
+
+    <div class="section-title">
+
+        <h2>
+
+            What do you need help with?
+
+        </h2>
+
+        <p>
+
+            Choose a category or search your problem.
+
+        </p>
+
+    </div>
 
 
     <div class="categories">
 
 
-        <div class="category" onclick="showCategory('computer')">
+        <div
+            class="category"
+            onclick="showCategory('computer')"
+        >
 
             <div class="icon">💻</div>
 
-            Computer
+            <strong>Computer</strong>
+
+            <small>PC & laptop</small>
 
         </div>
 
 
-        <div class="category" onclick="showCategory('internet')">
+        <div
+            class="category"
+            onclick="showCategory('internet')"
+        >
 
             <div class="icon">🌐</div>
 
-            Internet
+            <strong>Internet</strong>
+
+            <small>Wi-Fi & web</small>
 
         </div>
 
 
-        <div class="category" onclick="showCategory('phone')">
+        <div
+            class="category"
+            onclick="showCategory('phone')"
+        >
 
             <div class="icon">📱</div>
 
-            Phone
+            <strong>Phone</strong>
+
+            <small>Mobile problems</small>
 
         </div>
 
 
-        <div class="category" onclick="showCategory('gaming')">
+        <div
+            class="category"
+            onclick="showCategory('gaming')"
+        >
 
             <div class="icon">🎮</div>
 
-            Gaming
+            <strong>Gaming</strong>
+
+            <small>Games & FPS</small>
 
         </div>
 
 
-        <div class="category" onclick="showCategory('coding')">
+        <div
+            class="category"
+            onclick="showCategory('coding')"
+        >
 
             <div class="icon">👨‍💻</div>
 
-            Coding
+            <strong>Coding</strong>
+
+            <small>Code & websites</small>
 
         </div>
 
@@ -387,40 +1023,214 @@ footer {
 </div>
 
 
-<section id="solution" class="solution">
 
-    <div class="back" onclick="goBack()">
-        ← Back
+<!-- =========================
+     HOW IT WORKS
+========================= -->
+
+<section class="how">
+
+    <div class="section-title">
+
+        <h2>
+
+            How FixIt works
+
+        </h2>
+
+        <p>
+
+            No complicated manuals. Just simple steps.
+
+        </p>
+
     </div>
 
-    <h2 id="solutionTitle"></h2>
 
-    <p id="solutionDescription" class="description"></p>
+    <div class="how-grid">
 
-    <div id="steps"></div>
 
-    <div class="warning">
+        <div class="how-card">
 
-        ⚠️ If a problem involves electricity, damaged hardware,
-        or anything unsafe, stop and contact a qualified professional.
+            <div class="how-number">
+
+                1
+
+            </div>
+
+            <h3>
+
+                Describe your problem
+
+            </h3>
+
+            <p>
+
+                Tell FixIt what's going wrong
+                in your own words.
+
+            </p>
+
+        </div>
+
+
+        <div class="how-card">
+
+            <div class="how-number">
+
+                2
+
+            </div>
+
+            <h3>
+
+                Find the likely cause
+
+            </h3>
+
+            <p>
+
+                FixIt matches your problem with
+                useful troubleshooting steps.
+
+            </p>
+
+        </div>
+
+
+        <div class="how-card">
+
+            <div class="how-number">
+
+                3
+
+            </div>
+
+            <h3>
+
+                Follow the fix
+
+            </h3>
+
+            <p>
+
+                Work through the steps until
+                your problem is solved.
+
+            </p>
+
+        </div>
+
 
     </div>
 
 </section>
 
 
+
+<!-- =========================
+     SOLUTION
+========================= -->
+
+<section id="solution" class="solution">
+
+
+    <div
+        class="back"
+        onclick="goBack()"
+    >
+
+        ← Back to FixIt
+
+    </div>
+
+
+    <h2 id="solutionTitle"></h2>
+
+
+    <p
+        id="solutionDescription"
+        class="description"
+    ></p>
+
+
+    <div id="steps"></div>
+
+
+    <div class="feedback">
+
+        <p>
+
+            Was this solution helpful?
+
+        </p>
+
+
+        <button onclick="feedback('yes')">
+
+            👍 Yes
+
+        </button>
+
+
+        <button onclick="feedback('no')">
+
+            👎 Not really
+
+        </button>
+
+
+        <div
+            id="feedbackMessage"
+            style="
+                margin-top:10px;
+                color:#4f46e5;
+                font-weight:600;
+            "
+        ></div>
+
+    </div>
+
+
+    <div class="warning">
+
+        ⚠️ FixIt provides general troubleshooting
+        information. If a problem involves electricity,
+        damaged hardware, overheating, or anything unsafe,
+        stop and contact a qualified professional.
+
+    </div>
+
+
+</section>
+
+
+
+<!-- =========================
+     FOOTER
+========================= -->
+
 <footer>
 
-    FixIt — Simple solutions for everyday problems.
+    <strong>FixIt</strong>
+
+    <br><br>
+
+    Simple solutions for everyday technology problems.
+
+    <br><br>
+
+    Built to make troubleshooting easier.
 
 </footer>
+
 
 
 <script>
 
 
 /* =========================================================
-   FIX DATABASE
+   PROBLEM DATABASE
 ========================================================= */
 
 
@@ -429,11 +1239,11 @@ const problems = [
 
 /* COMPUTER */
 
-
 {
     title: "My computer is slow",
     category: "computer",
-    description: "Diagnose why your computer might be slow.",
+    description:
+        "Diagnose why your computer might be slow.",
     keywords: [
         "computer",
         "pc",
@@ -457,7 +1267,8 @@ const problems = [
 {
     title: "My computer has no sound",
     category: "computer",
-    description: "Check common causes of missing computer audio.",
+    description:
+        "Check common causes of missing computer audio.",
     keywords: [
         "sound",
         "audio",
@@ -480,7 +1291,8 @@ const problems = [
 {
     title: "My computer storage is full",
     category: "computer",
-    description: "Free storage without deleting important system files.",
+    description:
+        "Free storage without deleting important system files.",
     keywords: [
         "storage",
         "space",
@@ -502,11 +1314,11 @@ const problems = [
 
 /* INTERNET */
 
-
 {
     title: "My Wi-Fi is slow",
     category: "internet",
-    description: "Try these steps to improve your connection.",
+    description:
+        "Try these steps to improve your connection.",
     keywords: [
         "wifi",
         "wi-fi",
@@ -530,7 +1342,8 @@ const problems = [
 {
     title: "My Wi-Fi keeps disconnecting",
     category: "internet",
-    description: "Check common causes of repeated Wi-Fi disconnections.",
+    description:
+        "Check common causes of repeated Wi-Fi disconnections.",
     keywords: [
         "wifi",
         "wi-fi",
@@ -555,7 +1368,8 @@ const problems = [
 {
     title: "A website won't load",
     category: "internet",
-    description: "Try these steps if a website won't open.",
+    description:
+        "Try these steps if a website won't open.",
     keywords: [
         "website",
         "web",
@@ -579,11 +1393,11 @@ const problems = [
 
 /* PHONE */
 
-
 {
     title: "My phone won't charge",
     category: "phone",
-    description: "Check the charger and connection.",
+    description:
+        "Check the charger and connection.",
     keywords: [
         "phone",
         "charge",
@@ -605,7 +1419,8 @@ const problems = [
 {
     title: "My phone battery drains quickly",
     category: "phone",
-    description: "Find what is using your battery.",
+    description:
+        "Find what is using your battery.",
     keywords: [
         "phone",
         "battery",
@@ -629,7 +1444,8 @@ const problems = [
 {
     title: "My phone is overheating",
     category: "phone",
-    description: "Try these basic steps if your phone becomes unusually hot.",
+    description:
+        "Try these basic steps if your phone becomes unusually hot.",
     keywords: [
         "phone",
         "hot",
@@ -650,11 +1466,11 @@ const problems = [
 
 /* GAMING */
 
-
 {
     title: "My game is lagging",
     category: "gaming",
-    description: "Improve FPS and reduce common gaming lag.",
+    description:
+        "Improve FPS and reduce common gaming lag.",
     keywords: [
         "game",
         "gaming",
@@ -679,7 +1495,8 @@ const problems = [
 {
     title: "My game keeps crashing",
     category: "gaming",
-    description: "Try these common fixes for game crashes.",
+    description:
+        "Try these common fixes for game crashes.",
     keywords: [
         "game",
         "gaming",
@@ -700,11 +1517,11 @@ const problems = [
 
 /* CODING */
 
-
 {
     title: "My JavaScript code has an error",
     category: "coding",
-    description: "Find common JavaScript errors.",
+    description:
+        "Find common JavaScript errors.",
     keywords: [
         "javascript",
         "js",
@@ -730,7 +1547,8 @@ const problems = [
 {
     title: "My Python code isn't working",
     category: "coding",
-    description: "Use the error message to find the problem.",
+    description:
+        "Use the error message to find the problem.",
     keywords: [
         "python",
         "py",
@@ -754,7 +1572,8 @@ const problems = [
 {
     title: "My website is blank",
     category: "coding",
-    description: "Find common causes of blank websites.",
+    description:
+        "Find common causes of blank websites.",
     keywords: [
         "website",
         "web",
@@ -778,7 +1597,8 @@ const problems = [
 {
     title: "My CSS isn't working",
     category: "coding",
-    description: "Check why your CSS changes aren't appearing.",
+    description:
+        "Check why your CSS changes aren't appearing.",
     keywords: [
         "css",
         "html",
@@ -802,7 +1622,8 @@ const problems = [
 {
     title: "My GitHub Pages website isn't updating",
     category: "coding",
-    description: "Check why your latest website changes aren't visible.",
+    description:
+        "Check why your latest website changes aren't visible.",
     keywords: [
         "github",
         "pages",
@@ -826,7 +1647,7 @@ const problems = [
 
 
 /* =========================================================
-   SEARCH
+   SEARCH SYNONYMS
 ========================================================= */
 
 
@@ -961,16 +1782,28 @@ const synonyms = {
 
 function getRelatedWords(word) {
 
-    for (const group in synonyms) {
+    for (
+        const group in synonyms
+    ) {
 
-        if (synonyms[group].includes(word)) {
+        if (
+            synonyms[group].includes(word)
+        ) {
+
             return synonyms[group];
+
         }
 
     }
 
     return [word];
+
 }
+
+
+/* =========================================================
+   SEARCH
+========================================================= */
 
 
 function searchProblems() {
@@ -981,6 +1814,7 @@ function searchProblems() {
         .toLowerCase()
         .trim();
 
+
     if (!input) {
 
         displayProblems(
@@ -989,83 +1823,110 @@ function searchProblems() {
         );
 
         return;
+
     }
 
 
     const words = input
         .replace(/[^\w\s-]/g, "")
         .split(/\s+/)
-        .filter(word => word.length > 1);
+        .filter(
+            word => word.length > 1
+        );
 
 
-    const results = problems.map(function(problem) {
+    const results = problems.map(
+        function(problem) {
 
-        const searchableText = (
+            const searchableText = (
 
-            problem.title +
-            " " +
-            problem.description +
-            " " +
-            problem.keywords.join(" ")
+                problem.title +
+                " " +
+                problem.description +
+                " " +
+                problem.keywords.join(" ")
 
-        ).toLowerCase();
-
-
-        let score = 0;
+            ).toLowerCase();
 
 
-        words.forEach(function(word) {
-
-            const relatedWords =
-                getRelatedWords(word);
+            let score = 0;
 
 
-            relatedWords.forEach(function(related) {
+            words.forEach(
+                function(word) {
 
-                if (searchableText.includes(related)) {
+                    const related =
+                        getRelatedWords(word);
 
-                    score++;
+
+                    related.forEach(
+                        function(item) {
+
+                            if (
+                                searchableText
+                                    .includes(item)
+                            ) {
+
+                                score++;
+
+                            }
+
+                        }
+                    );
+
+
+                    if (
+                        searchableText
+                            .includes(word)
+                    ) {
+
+                        score += 2;
+
+                    }
 
                 }
+            );
 
-            });
 
+            if (
+                problem.title
+                    .toLowerCase()
+                    .includes(input)
+            ) {
 
-            if (searchableText.includes(word)) {
-
-                score += 2;
+                score += 10;
 
             }
 
-        });
 
+            return {
 
-        if (
-            problem.title
-                .toLowerCase()
-                .includes(input)
-        ) {
+                problem:
+                    problem,
 
-            score += 10;
+                score:
+                    score
+
+            };
 
         }
-
-
-        return {
-            problem: problem,
-            score: score
-        };
-
-    });
+    );
 
 
     const matches = results
 
-        .filter(result => result.score > 0)
+        .filter(
+            result => result.score > 0
+        )
 
-        .sort((a, b) => b.score - a.score)
+        .sort(
+            (a,b) =>
+                b.score - a.score
+        )
 
-        .map(result => result.problem);
+        .map(
+            result => result.problem
+        );
 
 
     displayProblems(
@@ -1077,18 +1938,17 @@ function searchProblems() {
 
 
 /* =========================================================
-   CATEGORIES
+   CATEGORY
 ========================================================= */
 
 
 function showCategory(category) {
 
     const matches =
-        problems.filter(function(problem) {
-
-            return problem.category === category;
-
-        });
+        problems.filter(
+            problem =>
+                problem.category === category
+        );
 
 
     displayProblems(
@@ -1100,23 +1960,33 @@ function showCategory(category) {
 
 
 /* =========================================================
-   DISPLAY PROBLEMS
+   DISPLAY
 ========================================================= */
 
 
-function displayProblems(matches, title) {
+function displayProblems(
+    matches,
+    title
+) {
 
     const container =
         document.getElementById("problems");
 
 
     container.innerHTML =
-        "<h2 class='title'>" +
+
+        "<div class='section-title'>" +
+
+        "<h2>" +
         title +
-        "</h2>";
+        "</h2>" +
+
+        "</div>";
 
 
-    if (matches.length === 0) {
+    if (
+        matches.length === 0
+    ) {
 
         container.innerHTML += `
 
@@ -1129,13 +1999,31 @@ function displayProblems(matches, title) {
                 <br>
 
                 <p>
-                    Try searching for something like
-                    <strong>slow laptop</strong>,
-                    <strong>wifi disconnecting</strong>,
-                    <strong>battery dying</strong>,
-                    <strong>game lagging</strong>,
+
+                    Try something like
+
+                    <strong>
+                        slow laptop
+                    </strong>,
+
+                    <strong>
+                        Wi-Fi disconnecting
+                    </strong>,
+
+                    <strong>
+                        phone battery
+                    </strong>,
+
+                    <strong>
+                        game lagging
+                    </strong>
+
                     or
-                    <strong>javascript error</strong>.
+
+                    <strong>
+                        JavaScript error
+                    </strong>.
+
                 </p>
 
             </div>
@@ -1143,39 +2031,44 @@ function displayProblems(matches, title) {
         `;
 
         return;
+
     }
 
 
-    matches.forEach(function(problem) {
+    matches.forEach(
+        function(problem) {
 
-        const div =
-            document.createElement("div");
-
-
-        div.className = "problem";
+            const div =
+                document.createElement("div");
 
 
-        div.innerHTML =
-
-            "<h3>" +
-            problem.title +
-            "</h3>" +
-
-            "<p>" +
-            problem.description +
-            "</p>";
+            div.className =
+                "problem";
 
 
-        div.onclick = function() {
+            div.innerHTML =
 
-            showSolution(problem);
+                "<h3>" +
+                problem.title +
+                "</h3>" +
 
-        };
+                "<p>" +
+                problem.description +
+                "</p>";
 
 
-        container.appendChild(div);
+            div.onclick =
+                function() {
 
-    });
+                    showSolution(problem);
+
+                };
+
+
+            container.appendChild(div);
+
+        }
+    );
 
 
     container.scrollIntoView({
@@ -1186,15 +2079,12 @@ function displayProblems(matches, title) {
 
 
 /* =========================================================
-   SHOW SOLUTION
+   SOLUTION
 ========================================================= */
 
 
 function showSolution(problem) {
 
-    /*
-       Special diagnosis for slow computers.
-    */
 
     if (
         problem.title ===
@@ -1204,6 +2094,7 @@ function showSolution(problem) {
         startSlowComputerDiagnosis();
 
         return;
+
     }
 
 
@@ -1215,16 +2106,22 @@ function showSolution(problem) {
         .style.display = "none";
 
 
+    document.querySelector(".how")
+        .style.display = "none";
+
+
     document.getElementById("solution")
         .style.display = "block";
 
 
     document.getElementById("solutionTitle")
-        .innerText = problem.title;
+        .innerText =
+        problem.title;
 
 
     document.getElementById("solutionDescription")
-        .innerText = problem.description;
+        .innerText =
+        problem.description;
 
 
     const steps =
@@ -1234,36 +2131,44 @@ function showSolution(problem) {
     steps.innerHTML = "";
 
 
-    problem.steps.forEach(function(step, index) {
+    problem.steps.forEach(
+        function(step,index) {
 
-        const div =
-            document.createElement("div");
-
-
-        div.className = "step";
+            const div =
+                document.createElement("div");
 
 
-        div.innerHTML =
-
-            "<label>" +
-
-            "<input type='checkbox'>" +
-
-            "<strong>Step " +
-            (index + 1) +
-            "</strong> " +
-
-            step +
-
-            "</label>";
+            div.className =
+                "step";
 
 
-        steps.appendChild(div);
+            div.innerHTML =
 
-    });
+                "<label>" +
+
+                "<input type='checkbox'>" +
+
+                "<strong>Step " +
+
+                (index + 1) +
+
+                "</strong> " +
+
+                step +
+
+                "</label>";
 
 
-    window.scrollTo(0, 0);
+            steps.appendChild(div);
+
+        }
+    );
+
+
+    window.scrollTo(
+        0,
+        0
+    );
 
 }
 
@@ -1275,11 +2180,16 @@ function showSolution(problem) {
 
 function startSlowComputerDiagnosis() {
 
+
     document.querySelector(".hero")
         .style.display = "none";
 
 
     document.querySelector(".container")
+        .style.display = "none";
+
+
+    document.querySelector(".how")
         .style.display = "none";
 
 
@@ -1305,16 +2215,28 @@ function startSlowComputerDiagnosis() {
 
         <div class="step">
 
-            <h3>Question 1</h3>
+            <h3>
+                Question 1
+            </h3>
 
-            <p style="margin:12px 0;color:#6b7280;">
+            <p
+                style="
+                    margin:12px 0;
+                    color:#6b7280;
+                "
+            >
                 What is actually slow?
             </p>
 
 
             <button
                 class="diagnosis-button"
-                onclick="slowComputerAnswer('everything')">
+                onclick="
+                    slowComputerAnswer(
+                        'everything'
+                    )
+                "
+            >
 
                 🐌 Almost everything
 
@@ -1323,7 +2245,12 @@ function startSlowComputerDiagnosis() {
 
             <button
                 class="diagnosis-button"
-                onclick="slowComputerAnswer('games')">
+                onclick="
+                    slowComputerAnswer(
+                        'games'
+                    )
+                "
+            >
 
                 🎮 Mostly games
 
@@ -1332,7 +2259,12 @@ function startSlowComputerDiagnosis() {
 
             <button
                 class="diagnosis-button"
-                onclick="slowComputerAnswer('startup')">
+                onclick="
+                    slowComputerAnswer(
+                        'startup'
+                    )
+                "
+            >
 
                 🚀 Starting the computer takes forever
 
@@ -1341,7 +2273,12 @@ function startSlowComputerDiagnosis() {
 
             <button
                 class="diagnosis-button"
-                onclick="slowComputerAnswer('recent')">
+                onclick="
+                    slowComputerAnswer(
+                        'recent'
+                    )
+                "
+            >
 
                 📉 It suddenly became slow
 
@@ -1352,7 +2289,10 @@ function startSlowComputerDiagnosis() {
     `;
 
 
-    window.scrollTo(0, 0);
+    window.scrollTo(
+        0,
+        0
+    );
 
 }
 
@@ -1364,13 +2304,14 @@ function startSlowComputerDiagnosis() {
 
 function slowComputerAnswer(answer) {
 
+
     const steps =
         document.getElementById("steps");
 
 
-    /* EVERYTHING */
-
-    if (answer === "everything") {
+    if (
+        answer === "everything"
+    ) {
 
         steps.innerHTML = `
 
@@ -1380,15 +2321,23 @@ function slowComputerAnswer(answer) {
                     💻 Let's check your storage
                 </h3>
 
-                <p style="margin:12px 0;color:#6b7280;">
-                    A nearly full drive can contribute
-                    to poor performance.
+                <p
+                    style="
+                        margin:12px 0;
+                        color:#6b7280;
+                    "
+                >
+                    A nearly full drive can
+                    contribute to poor performance.
                 </p>
 
 
                 <button
                     class="diagnosis-button"
-                    onclick="storageAnswer('full')">
+                    onclick="
+                        storageAnswer('full')
+                    "
+                >
 
                     🔴 My storage is almost full
 
@@ -1397,7 +2346,10 @@ function slowComputerAnswer(answer) {
 
                 <button
                     class="diagnosis-button"
-                    onclick="storageAnswer('space')">
+                    onclick="
+                        storageAnswer('space')
+                    "
+                >
 
                     🟢 I have plenty of free space
 
@@ -1406,7 +2358,10 @@ function slowComputerAnswer(answer) {
 
                 <button
                     class="diagnosis-button"
-                    onclick="storageAnswer('unknown')">
+                    onclick="
+                        storageAnswer('unknown')
+                    "
+                >
 
                     ❓ I don't know
 
@@ -1417,19 +2372,21 @@ function slowComputerAnswer(answer) {
         `;
 
         return;
+
     }
 
 
-    /* GAMES */
-
-    if (answer === "games") {
+    if (
+        answer === "games"
+    ) {
 
         steps.innerHTML = `
 
             <div class="result-warning">
 
                 <h3>
-                    🎮 This may be a gaming-performance problem.
+                    🎮 This may be a
+                    gaming-performance problem.
                 </h3>
 
                 <br>
@@ -1481,19 +2438,21 @@ function slowComputerAnswer(answer) {
         `;
 
         return;
+
     }
 
 
-    /* STARTUP */
-
-    if (answer === "startup") {
+    if (
+        answer === "startup"
+    ) {
 
         steps.innerHTML = `
 
             <div class="result-good">
 
                 <h3>
-                    🚀 Likely area: startup programs
+                    🚀 Likely area:
+                    startup programs
                 </h3>
 
             </div>
@@ -1539,12 +2498,13 @@ function slowComputerAnswer(answer) {
         `;
 
         return;
+
     }
 
 
-    /* RECENT */
-
-    if (answer === "recent") {
+    if (
+        answer === "recent"
+    ) {
 
         steps.innerHTML = `
 
@@ -1563,9 +2523,13 @@ function slowComputerAnswer(answer) {
 
                 <br>
 
+
                 <button
                     class="diagnosis-button"
-                    onclick="recentAnswer('program')">
+                    onclick="
+                        recentAnswer('program')
+                    "
+                >
 
                     📦 I installed a program
 
@@ -1574,7 +2538,10 @@ function slowComputerAnswer(answer) {
 
                 <button
                     class="diagnosis-button"
-                    onclick="recentAnswer('update')">
+                    onclick="
+                        recentAnswer('update')
+                    "
+                >
 
                     🔄 Windows recently updated
 
@@ -1583,7 +2550,10 @@ function slowComputerAnswer(answer) {
 
                 <button
                     class="diagnosis-button"
-                    onclick="recentAnswer('nothing')">
+                    onclick="
+                        recentAnswer('nothing')
+                    "
+                >
 
                     🤷 Nothing obvious changed
 
@@ -1593,36 +2563,41 @@ function slowComputerAnswer(answer) {
 
         `;
 
-        return;
     }
 
 }
 
 
 /* =========================================================
-   STORAGE DIAGNOSIS
+   STORAGE
 ========================================================= */
 
 
 function storageAnswer(answer) {
 
+
     const steps =
         document.getElementById("steps");
 
 
-    if (answer === "full") {
+    if (
+        answer === "full"
+    ) {
 
         steps.innerHTML = `
 
             <div class="result-good">
 
                 <h3>
-                    🎯 Likely cause: low storage
+                    🎯 Likely cause:
+                    low storage
                 </h3>
 
-                <p style="margin-top:10px;">
-                    Your storage being nearly full may be
-                    contributing to the slowdown.
+                <p
+                    style="margin-top:10px;"
+                >
+                    Your storage being nearly full
+                    may be contributing to the slowdown.
                 </p>
 
             </div>
@@ -1674,28 +2649,40 @@ function storageAnswer(answer) {
         `;
 
         return;
+
     }
 
 
-    if (answer === "space") {
+    if (
+        answer === "space"
+    ) {
 
         steps.innerHTML = `
 
             <div class="step">
 
                 <h3>
-                    🔎 Storage probably isn't the main problem.
+                    🔎 Storage probably isn't
+                    the main problem.
                 </h3>
 
-                <p style="margin:12px 0;color:#6b7280;">
-                    Let's check whether another program
-                    is using too many resources.
+                <p
+                    style="
+                        margin:12px 0;
+                        color:#6b7280;
+                    "
+                >
+                    Let's check whether another
+                    program is using too many resources.
                 </p>
 
 
                 <button
                     class="diagnosis-button"
-                    onclick="resourceDiagnosis()">
+                    onclick="
+                        resourceDiagnosis()
+                    "
+                >
 
                     📊 Check resource usage →
 
@@ -1706,10 +2693,13 @@ function storageAnswer(answer) {
         `;
 
         return;
+
     }
 
 
-    if (answer === "unknown") {
+    if (
+        answer === "unknown"
+    ) {
 
         steps.innerHTML = `
 
@@ -1719,15 +2709,23 @@ function storageAnswer(answer) {
                     💡 Let's check.
                 </h3>
 
-                <p style="margin:12px 0;color:#6b7280;">
-                    On Windows, open Settings →
-                    System → Storage.
+                <p
+                    style="
+                        margin:12px 0;
+                        color:#6b7280;
+                    "
+                >
+                    On Windows, open
+                    Settings → System → Storage.
                 </p>
 
 
                 <button
                     class="diagnosis-button"
-                    onclick="storageAnswer('full')">
+                    onclick="
+                        storageAnswer('full')
+                    "
+                >
 
                     🔴 It's almost full
 
@@ -1736,7 +2734,10 @@ function storageAnswer(answer) {
 
                 <button
                     class="diagnosis-button"
-                    onclick="storageAnswer('space')">
+                    onclick="
+                        storageAnswer('space')
+                    "
+                >
 
                     🟢 I have plenty of space
 
@@ -1752,11 +2753,12 @@ function storageAnswer(answer) {
 
 
 /* =========================================================
-   RESOURCE DIAGNOSIS
+   RESOURCES
 ========================================================= */
 
 
 function resourceDiagnosis() {
+
 
     const steps =
         document.getElementById("steps");
@@ -1770,16 +2772,21 @@ function resourceDiagnosis() {
                 📊 Check your computer resources
             </h3>
 
-            <p style="margin:12px 0;color:#6b7280;">
-                This can help identify what is using
-                your computer's resources.
+            <p
+                style="
+                    margin:12px 0;
+                    color:#6b7280;
+                "
+            >
+                This can help identify what is
+                using your computer's resources.
             </p>
 
             <br>
 
             <p>
                 <strong>1.</strong>
-                Press <strong>Ctrl + Shift + Esc</strong>.
+                Press Ctrl + Shift + Esc.
             </p>
 
             <br>
@@ -1826,17 +2833,20 @@ function resourceDiagnosis() {
 
 
 /* =========================================================
-   RECENT SLOWDOWN
+   RECENT
 ========================================================= */
 
 
 function recentAnswer(answer) {
 
+
     const steps =
         document.getElementById("steps");
 
 
-    if (answer === "program") {
+    if (
+        answer === "program"
+    ) {
 
         steps.innerHTML = `
 
@@ -1871,17 +2881,21 @@ function recentAnswer(answer) {
         `;
 
         return;
+
     }
 
 
-    if (answer === "update") {
+    if (
+        answer === "update"
+    ) {
 
         steps.innerHTML = `
 
             <div class="result-warning">
 
                 <h3>
-                    🔄 A recent update may be worth investigating.
+                    🔄 A recent update may be
+                    worth investigating.
                 </h3>
 
             </div>
@@ -1909,10 +2923,13 @@ function recentAnswer(answer) {
         `;
 
         return;
+
     }
 
 
-    if (answer === "nothing") {
+    if (
+        answer === "nothing"
+    ) {
 
         steps.innerHTML = `
 
@@ -1951,11 +2968,43 @@ function recentAnswer(answer) {
 
 
 /* =========================================================
+   FEEDBACK
+========================================================= */
+
+
+function feedback(answer) {
+
+
+    const message =
+        document.getElementById(
+            "feedbackMessage"
+        );
+
+
+    if (
+        answer === "yes"
+    ) {
+
+        message.innerText =
+            "Thanks! We're glad FixIt helped. ❤️";
+
+    } else {
+
+        message.innerText =
+            "Thanks for the feedback. We'll keep improving FixIt.";
+
+    }
+
+}
+
+
+/* =========================================================
    BACK
 ========================================================= */
 
 
 function goBack() {
+
 
     document.getElementById("solution")
         .style.display = "none";
@@ -1969,12 +3018,31 @@ function goBack() {
         .style.display = "block";
 
 
-    window.scrollTo(0, 0);
+    document.querySelector(".how")
+        .style.display = "block";
+
+
+    window.scrollTo(
+        0,
+        0
+    );
 
 }
+
+
+/* =========================================================
+   INITIAL PROBLEMS
+========================================================= */
+
+
+displayProblems(
+    problems.slice(0, 6),
+    "Popular fixes"
+);
 
 
 </script>
 
 </body>
+
 </html>
