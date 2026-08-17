@@ -1,10 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-
 <meta charset="UTF-8">
-
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>FixIt - Find a Fix</title>
@@ -26,7 +23,7 @@ body {
 header {
     background: white;
     border-bottom: 1px solid #e5e7eb;
-    padding: 20px 7%;
+    padding: 18px 7%;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -51,12 +48,12 @@ header {
 
 .hero {
     text-align: center;
-    padding: 80px 20px 50px;
+    padding: 75px 20px 45px;
 }
 
 .hero h1 {
     font-size: 52px;
-    margin-bottom: 20px;
+    margin-bottom: 18px;
 }
 
 .hero h1 span {
@@ -66,11 +63,11 @@ header {
 .hero p {
     color: #6b7280;
     font-size: 19px;
-    margin-bottom: 35px;
+    margin-bottom: 32px;
 }
 
 .search {
-    max-width: 700px;
+    max-width: 720px;
     margin: auto;
     display: flex;
     background: white;
@@ -176,7 +173,7 @@ header {
 .solution {
     display: none;
     max-width: 800px;
-    margin: 50px auto;
+    margin: 45px auto;
     padding: 25px;
 }
 
@@ -201,12 +198,47 @@ header {
     background: white;
     border: 1px solid #e5e7eb;
     border-radius: 12px;
-    padding: 18px;
+    padding: 20px;
     margin-bottom: 12px;
 }
 
 .step input {
     margin-right: 10px;
+}
+
+.diagnosis-button {
+    display: block;
+    width: 100%;
+    padding: 15px;
+    margin: 10px 0;
+    border: 1px solid #e5e7eb;
+    background: white;
+    border-radius: 10px;
+    text-align: left;
+    cursor: pointer;
+    font-size: 15px;
+    transition: 0.2s;
+}
+
+.diagnosis-button:hover {
+    border-color: #4f46e5;
+    background: #f5f3ff;
+}
+
+.result-good {
+    background: #ecfdf5;
+    border: 1px solid #a7f3d0;
+    border-radius: 12px;
+    padding: 20px;
+    margin-bottom: 15px;
+}
+
+.result-warning {
+    background: #fff7ed;
+    border: 1px solid #fed7aa;
+    border-radius: 12px;
+    padding: 20px;
+    margin-bottom: 15px;
 }
 
 .warning {
@@ -244,7 +276,6 @@ footer {
 }
 
 </style>
-
 </head>
 
 
@@ -253,150 +284,134 @@ footer {
 
 <header>
 
-<div class="logo">
-🔧 <span>FixIt</span>
-</div>
+    <div class="logo">
+        🔧 <span>FixIt</span>
+    </div>
 
-<div class="badge">
-100% Free
-</div>
+    <div class="badge">
+        100% Free
+    </div>
 
 </header>
 
 
 <section class="hero">
 
-<h1>
-Got a problem?
-<span>Let's fix it.</span>
-</h1>
+    <h1>
+        Got a problem?
+        <span>Let's fix it.</span>
+    </h1>
 
-<p>
-Find simple step-by-step solutions for technology problems.
-</p>
+    <p>
+        Find simple step-by-step solutions for everyday technology problems.
+    </p>
 
-<div class="search">
+    <div class="search">
 
-<input
-id="searchInput"
-type="text"
-placeholder="Example: My laptop is slow..."
-onkeydown="if(event.key === 'Enter') searchProblems()"
->
+        <input
+            id="searchInput"
+            type="text"
+            placeholder="Example: My laptop is really slow..."
+            onkeydown="if(event.key === 'Enter') searchProblems()"
+        >
 
-<button onclick="searchProblems()">
-Find a Fix
-</button>
+        <button onclick="searchProblems()">
+            Find a Fix
+        </button>
 
-</div>
+    </div>
 
 </section>
 
 
 <div class="container">
 
-<h2 class="title">
-Browse problems
-</h2>
+    <h2 class="title">
+        Browse problems
+    </h2>
 
 
-<div class="categories">
+    <div class="categories">
 
 
-<div class="category" onclick="showCategory('computer')">
+        <div class="category" onclick="showCategory('computer')">
 
-<div class="icon">
-💻
-</div>
+            <div class="icon">💻</div>
 
-Computer
+            Computer
 
-</div>
+        </div>
 
 
-<div class="category" onclick="showCategory('internet')">
+        <div class="category" onclick="showCategory('internet')">
 
-<div class="icon">
-🌐
-</div>
+            <div class="icon">🌐</div>
 
-Internet
+            Internet
 
-</div>
+        </div>
 
 
-<div class="category" onclick="showCategory('phone')">
+        <div class="category" onclick="showCategory('phone')">
 
-<div class="icon">
-📱
-</div>
+            <div class="icon">📱</div>
 
-Phone
+            Phone
 
-</div>
+        </div>
 
 
-<div class="category" onclick="showCategory('gaming')">
+        <div class="category" onclick="showCategory('gaming')">
 
-<div class="icon">
-🎮
-</div>
+            <div class="icon">🎮</div>
 
-Gaming
+            Gaming
 
-</div>
+        </div>
 
 
-<div class="category" onclick="showCategory('coding')">
+        <div class="category" onclick="showCategory('coding')">
 
-<div class="icon">
-👨‍💻
-</div>
+            <div class="icon">👨‍💻</div>
 
-Coding
+            Coding
 
-</div>
+        </div>
 
 
-</div>
+    </div>
 
 
-<div id="problems" class="problems">
-
-</div>
-
+    <div id="problems" class="problems"></div>
 
 </div>
 
 
 <section id="solution" class="solution">
 
-<div class="back" onclick="goBack()">
-← Back
-</div>
+    <div class="back" onclick="goBack()">
+        ← Back
+    </div>
 
-<h2 id="solutionTitle">
-</h2>
+    <h2 id="solutionTitle"></h2>
 
-<p id="solutionDescription" class="description">
-</p>
+    <p id="solutionDescription" class="description"></p>
 
-<div id="steps">
-</div>
+    <div id="steps"></div>
 
-<div class="warning">
+    <div class="warning">
 
-⚠️ If a problem involves electricity, damaged hardware,
-or anything unsafe, stop and contact a qualified professional.
+        ⚠️ If a problem involves electricity, damaged hardware,
+        or anything unsafe, stop and contact a qualified professional.
 
-</div>
+    </div>
 
 </section>
 
 
 <footer>
 
-FixIt — Simple solutions for everyday problems.
+    FixIt — Simple solutions for everyday problems.
 
 </footer>
 
@@ -404,993 +419,1562 @@ FixIt — Simple solutions for everyday problems.
 <script>
 
 
+/* =========================================================
+   FIX DATABASE
+========================================================= */
+
+
 const problems = [
 
 
-/* =========================
-   COMPUTER
-========================= */
+/* COMPUTER */
 
 
 {
-title: "My computer is slow",
-category: "computer",
-description: "Improve your computer's performance.",
-keywords: [
-"computer",
-"pc",
-"laptop",
-"slow",
-"sluggish",
-"laggy",
-"speed",
-"performance"
-],
-steps: [
-"Restart your computer.",
-"Close programs you are not using.",
-"Check how much storage space is available.",
-"Disable unnecessary startup programs.",
-"Install available system updates."
-]
+    title: "My computer is slow",
+    category: "computer",
+    description: "Diagnose why your computer might be slow.",
+    keywords: [
+        "computer",
+        "pc",
+        "laptop",
+        "slow",
+        "sluggish",
+        "laggy",
+        "speed",
+        "performance"
+    ],
+    steps: [
+        "Restart your computer.",
+        "Close programs you are not using.",
+        "Check how much storage space is available.",
+        "Disable unnecessary startup programs.",
+        "Install available system updates."
+    ]
 },
 
 
 {
-title: "My computer has no sound",
-category: "computer",
-description: "Check common causes of missing computer audio.",
-keywords: [
-"sound",
-"audio",
-"speaker",
-"speakers",
-"headphones",
-"volume",
-"computer"
-],
-steps: [
-"Make sure your volume is not muted.",
-"Check the selected audio output.",
-"Reconnect your headphones or speakers.",
-"Restart your computer.",
-"Try another pair of headphones or speakers."
-]
+    title: "My computer has no sound",
+    category: "computer",
+    description: "Check common causes of missing computer audio.",
+    keywords: [
+        "sound",
+        "audio",
+        "speaker",
+        "speakers",
+        "headphones",
+        "volume",
+        "computer"
+    ],
+    steps: [
+        "Make sure your volume is not muted.",
+        "Check the selected audio output.",
+        "Reconnect your headphones or speakers.",
+        "Restart your computer.",
+        "Try another pair of headphones or speakers."
+    ]
 },
 
 
 {
-title: "My computer storage is full",
-category: "computer",
-description: "Free storage without deleting important system files.",
-keywords: [
-"storage",
-"space",
-"disk",
-"full",
-"drive",
-"memory",
-"computer"
-],
-steps: [
-"Check which files use the most storage.",
-"Remove applications you no longer use.",
-"Empty the recycle bin.",
-"Move large personal files to another trusted storage location.",
-"Use your operating system's built-in storage cleanup tools."
-]
+    title: "My computer storage is full",
+    category: "computer",
+    description: "Free storage without deleting important system files.",
+    keywords: [
+        "storage",
+        "space",
+        "disk",
+        "full",
+        "drive",
+        "memory",
+        "computer"
+    ],
+    steps: [
+        "Check which files use the most storage.",
+        "Remove applications you no longer use.",
+        "Empty the recycle bin.",
+        "Move large personal files to another trusted storage location.",
+        "Use your operating system's built-in storage cleanup tools."
+    ]
 },
 
 
-/* =========================
-   INTERNET
-========================= */
+/* INTERNET */
 
 
 {
-title: "My Wi-Fi is slow",
-category: "internet",
-description: "Try these steps to improve your connection.",
-keywords: [
-"wifi",
-"wi-fi",
-"wireless",
-"internet",
-"slow",
-"speed",
-"connection",
-"network"
-],
-steps: [
-"Restart your router.",
-"Move closer to the router.",
-"Disconnect devices you aren't using.",
-"Run an internet speed test.",
-"Test another device on the same network."
-]
-},
-
-
-{
-title: "My Wi-Fi keeps disconnecting",
-category: "internet",
-description: "Check common causes of repeated Wi-Fi disconnections.",
-keywords: [
-"wifi",
-"wi-fi",
-"internet",
-"disconnect",
-"disconnecting",
-"dropping",
-"drops",
-"connection",
-"network"
-],
-steps: [
-"Restart your router.",
-"Restart your computer or phone.",
-"Forget the Wi-Fi network and reconnect.",
-"Move closer to the router.",
-"Check whether other devices have the same problem."
-]
+    title: "My Wi-Fi is slow",
+    category: "internet",
+    description: "Try these steps to improve your connection.",
+    keywords: [
+        "wifi",
+        "wi-fi",
+        "wireless",
+        "internet",
+        "slow",
+        "speed",
+        "connection",
+        "network"
+    ],
+    steps: [
+        "Restart your router.",
+        "Move closer to the router.",
+        "Disconnect devices you aren't using.",
+        "Run an internet speed test.",
+        "Test another device on the same network."
+    ]
 },
 
 
 {
-title: "A website won't load",
-category: "internet",
-description: "Try these steps if a website won't open.",
-keywords: [
-"website",
-"web",
-"site",
-"page",
-"browser",
-"internet",
-"chrome",
-"load",
-"loading"
-],
-steps: [
-"Refresh the page.",
-"Try another website.",
-"Restart your browser.",
-"Try another browser.",
-"Restart your internet connection."
-]
-},
-
-
-/* =========================
-   PHONE
-========================= */
-
-
-{
-title: "My phone won't charge",
-category: "phone",
-description: "Check the charger and connection.",
-keywords: [
-"phone",
-"charge",
-"charging",
-"charger",
-"battery",
-"power"
-],
-steps: [
-"Try another charging cable.",
-"Try another power adapter.",
-"Try another electrical outlet.",
-"Check the charging port for visible debris.",
-"Restart your phone."
-]
+    title: "My Wi-Fi keeps disconnecting",
+    category: "internet",
+    description: "Check common causes of repeated Wi-Fi disconnections.",
+    keywords: [
+        "wifi",
+        "wi-fi",
+        "internet",
+        "disconnect",
+        "disconnecting",
+        "dropping",
+        "drops",
+        "connection",
+        "network"
+    ],
+    steps: [
+        "Restart your router.",
+        "Restart your computer or phone.",
+        "Forget the Wi-Fi network and reconnect.",
+        "Move closer to the router.",
+        "Check whether other devices have the same problem."
+    ]
 },
 
 
 {
-title: "My phone battery drains quickly",
-category: "phone",
-description: "Find what is using your battery.",
-keywords: [
-"phone",
-"battery",
-"drain",
-"draining",
-"dies",
-"dying",
-"power",
-"charge"
-],
-steps: [
-"Check battery usage in your phone settings.",
-"Reduce screen brightness.",
-"Close unnecessary apps.",
-"Disable unnecessary location services.",
-"Install available system updates."
-]
+    title: "A website won't load",
+    category: "internet",
+    description: "Try these steps if a website won't open.",
+    keywords: [
+        "website",
+        "web",
+        "site",
+        "page",
+        "browser",
+        "internet",
+        "chrome",
+        "load",
+        "loading"
+    ],
+    steps: [
+        "Refresh the page.",
+        "Try another website.",
+        "Restart your browser.",
+        "Try another browser.",
+        "Restart your internet connection."
+    ]
+},
+
+
+/* PHONE */
+
+
+{
+    title: "My phone won't charge",
+    category: "phone",
+    description: "Check the charger and connection.",
+    keywords: [
+        "phone",
+        "charge",
+        "charging",
+        "charger",
+        "battery",
+        "power"
+    ],
+    steps: [
+        "Try another charging cable.",
+        "Try another power adapter.",
+        "Try another electrical outlet.",
+        "Check the charging port for visible debris.",
+        "Restart your phone."
+    ]
 },
 
 
 {
-title: "My phone is overheating",
-category: "phone",
-description: "Try these basic steps if your phone becomes unusually hot.",
-keywords: [
-"phone",
-"hot",
-"hotter",
-"overheat",
-"overheating",
-"temperature"
-],
-steps: [
-"Stop demanding apps such as games.",
-"Move the phone away from direct sunlight.",
-"Remove the case temporarily.",
-"Close unnecessary apps.",
-"Allow the phone to cool down."
-]
-},
-
-
-/* =========================
-   GAMING
-========================= */
-
-
-{
-title: "My game is lagging",
-category: "gaming",
-description: "Improve FPS and reduce common gaming lag.",
-keywords: [
-"game",
-"gaming",
-"lag",
-"lagging",
-"laggy",
-"stutter",
-"stuttering",
-"fps",
-"slow"
-],
-steps: [
-"Restart the game.",
-"Close unnecessary background programs.",
-"Check your internet connection if the game is online.",
-"Lower graphics settings.",
-"Update your graphics drivers."
-]
+    title: "My phone battery drains quickly",
+    category: "phone",
+    description: "Find what is using your battery.",
+    keywords: [
+        "phone",
+        "battery",
+        "drain",
+        "draining",
+        "dies",
+        "dying",
+        "power",
+        "charge"
+    ],
+    steps: [
+        "Check battery usage in your phone settings.",
+        "Reduce screen brightness.",
+        "Close unnecessary apps.",
+        "Disable unnecessary location services.",
+        "Install available system updates."
+    ]
 },
 
 
 {
-title: "My game keeps crashing",
-category: "gaming",
-description: "Try these common fixes for game crashes.",
-keywords: [
-"game",
-"gaming",
-"crash",
-"crashing",
-"broken",
-"steam"
-],
-steps: [
-"Restart the game.",
-"Restart your computer.",
-"Update the game.",
-"Verify the game's files using your gaming platform.",
-"Update your graphics drivers."
-]
+    title: "My phone is overheating",
+    category: "phone",
+    description: "Try these basic steps if your phone becomes unusually hot.",
+    keywords: [
+        "phone",
+        "hot",
+        "heating",
+        "overheat",
+        "overheating",
+        "temperature"
+    ],
+    steps: [
+        "Stop demanding apps such as games.",
+        "Move the phone away from direct sunlight.",
+        "Remove the case temporarily.",
+        "Close unnecessary apps.",
+        "Allow the phone to cool down."
+    ]
 },
 
 
-/* =========================
-   CODING
-========================= */
+/* GAMING */
 
 
 {
-title: "My JavaScript code has an error",
-category: "coding",
-description: "Find common JavaScript errors.",
-keywords: [
-"javascript",
-"js",
-"script",
-"coding",
-"code",
-"programming",
-"error",
-"bug",
-"broken"
-],
-steps: [
-"Read the exact error message.",
-"Open your browser Developer Tools.",
-"Open the Console.",
-"Look at the line number shown in the error.",
-"Check for missing brackets, quotes, or parentheses.",
-"Fix one thing at a time and test again."
-]
-},
-
-
-{
-title: "My Python code isn't working",
-category: "coding",
-description: "Use the error message to find the problem.",
-keywords: [
-"python",
-"py",
-"coding",
-"code",
-"programming",
-"error",
-"broken",
-"bug"
-],
-steps: [
-"Read the error message carefully.",
-"Find the line number in the traceback.",
-"Check variable names.",
-"Check your indentation.",
-"Test a smaller part of your program."
-]
+    title: "My game is lagging",
+    category: "gaming",
+    description: "Improve FPS and reduce common gaming lag.",
+    keywords: [
+        "game",
+        "gaming",
+        "lag",
+        "lagging",
+        "laggy",
+        "stutter",
+        "stuttering",
+        "fps",
+        "slow"
+    ],
+    steps: [
+        "Restart the game.",
+        "Close unnecessary background programs.",
+        "Check your internet connection if the game is online.",
+        "Lower graphics settings.",
+        "Update your graphics drivers."
+    ]
 },
 
 
 {
-title: "My website is blank",
-category: "coding",
-description: "Find common causes of blank websites.",
-keywords: [
-"website",
-"web",
-"html",
-"blank",
-"coding",
-"code",
-"page",
-"empty"
-],
-steps: [
-"Refresh the page.",
-"Open Developer Tools.",
-"Check the Console for errors.",
-"Check that your HTML tags are closed.",
-"Check your JavaScript for errors."
-]
+    title: "My game keeps crashing",
+    category: "gaming",
+    description: "Try these common fixes for game crashes.",
+    keywords: [
+        "game",
+        "gaming",
+        "crash",
+        "crashing",
+        "broken",
+        "steam"
+    ],
+    steps: [
+        "Restart the game.",
+        "Restart your computer.",
+        "Update the game.",
+        "Verify the game's files using your gaming platform.",
+        "Update your graphics drivers."
+    ]
+},
+
+
+/* CODING */
+
+
+{
+    title: "My JavaScript code has an error",
+    category: "coding",
+    description: "Find common JavaScript errors.",
+    keywords: [
+        "javascript",
+        "js",
+        "script",
+        "coding",
+        "code",
+        "programming",
+        "error",
+        "bug",
+        "broken"
+    ],
+    steps: [
+        "Read the exact error message.",
+        "Open your browser Developer Tools.",
+        "Open the Console.",
+        "Look at the line number shown in the error.",
+        "Check for missing brackets, quotes, or parentheses.",
+        "Fix one thing at a time and test again."
+    ]
 },
 
 
 {
-title: "My CSS isn't working",
-category: "coding",
-description: "Check why your CSS changes aren't appearing.",
-keywords: [
-"css",
-"html",
-"style",
-"styling",
-"coding",
-"code",
-"website",
-"design"
-],
-steps: [
-"Check that your CSS file is connected.",
-"Check the filename and path.",
-"Open Developer Tools.",
-"Check whether another CSS rule overrides your rule.",
-"Refresh the page."
-]
+    title: "My Python code isn't working",
+    category: "coding",
+    description: "Use the error message to find the problem.",
+    keywords: [
+        "python",
+        "py",
+        "coding",
+        "code",
+        "programming",
+        "error",
+        "broken",
+        "bug"
+    ],
+    steps: [
+        "Read the error message carefully.",
+        "Find the line number in the traceback.",
+        "Check variable names.",
+        "Check your indentation.",
+        "Test a smaller part of your program."
+    ]
 },
 
 
 {
-title: "My GitHub Pages website isn't updating",
-category: "coding",
-description: "Check why your latest website changes aren't visible.",
-keywords: [
-"github",
-"pages",
-"website",
-"hosting",
-"coding",
-"code",
-"update",
-"updating"
-],
-steps: [
-"Make sure you committed your changes.",
-"Wait a few minutes for GitHub Pages to rebuild.",
-"Refresh the website.",
-"Try a private browser window.",
-"Check Settings → Pages and make sure the correct branch is selected."
-]
+    title: "My website is blank",
+    category: "coding",
+    description: "Find common causes of blank websites.",
+    keywords: [
+        "website",
+        "web",
+        "html",
+        "blank",
+        "coding",
+        "code",
+        "page",
+        "empty"
+    ],
+    steps: [
+        "Refresh the page.",
+        "Open Developer Tools.",
+        "Check the Console for errors.",
+        "Check that your HTML tags are closed.",
+        "Check your JavaScript for errors."
+    ]
+},
+
+
+{
+    title: "My CSS isn't working",
+    category: "coding",
+    description: "Check why your CSS changes aren't appearing.",
+    keywords: [
+        "css",
+        "html",
+        "style",
+        "styling",
+        "coding",
+        "code",
+        "website",
+        "design"
+    ],
+    steps: [
+        "Check that your CSS file is connected.",
+        "Check the filename and path.",
+        "Open Developer Tools.",
+        "Check whether another CSS rule overrides your rule.",
+        "Refresh the page."
+    ]
+},
+
+
+{
+    title: "My GitHub Pages website isn't updating",
+    category: "coding",
+    description: "Check why your latest website changes aren't visible.",
+    keywords: [
+        "github",
+        "pages",
+        "website",
+        "hosting",
+        "coding",
+        "code",
+        "update",
+        "updating"
+    ],
+    steps: [
+        "Make sure you committed your changes.",
+        "Wait a few minutes for GitHub Pages to rebuild.",
+        "Refresh the website.",
+        "Try a private browser window.",
+        "Check Settings → Pages and make sure the correct branch is selected."
+    ]
 }
-
 
 ];
 
 
-/* =========================
+/* =========================================================
    SEARCH
-========================= */
-
-
-function searchProblems() {
-
-
-const input = document
-.getElementById("searchInput")
-.value
-.toLowerCase()
-.trim();
-
-
-if (!input) {
-
-displayProblems([], "Search results");
-
-return;
-
-}
-
-
-const words = input
-.replace(/[^\w\s-]/g, "")
-.split(/\s+/)
-.filter(word => word.length > 1);
-
-
-/*
-These groups allow FixIt to understand
-different ways of describing the same problem.
-*/
+========================================================= */
 
 
 const synonyms = {
 
+    slow: [
+        "slow",
+        "sluggish",
+        "laggy",
+        "lag",
+        "speed",
+        "performance"
+    ],
 
-slow: [
-"slow",
-"sluggish",
-"laggy",
-"lag",
-"speed",
-"performance"
-],
+    laptop: [
+        "laptop",
+        "computer",
+        "pc"
+    ],
 
+    computer: [
+        "computer",
+        "pc",
+        "laptop"
+    ],
 
-laptop: [
-"laptop",
-"computer",
-"pc"
-],
+    wifi: [
+        "wifi",
+        "wi-fi",
+        "wireless",
+        "internet",
+        "network",
+        "connection"
+    ],
 
+    internet: [
+        "internet",
+        "wifi",
+        "wi-fi",
+        "connection",
+        "network"
+    ],
 
-computer: [
-"computer",
-"pc",
-"laptop"
-],
+    disconnect: [
+        "disconnect",
+        "disconnecting",
+        "dropping",
+        "drops",
+        "drop",
+        "unstable"
+    ],
 
+    charge: [
+        "charge",
+        "charging",
+        "charger",
+        "power"
+    ],
 
-wifi: [
-"wifi",
-"wi-fi",
-"wireless",
-"internet",
-"network",
-"connection"
-],
+    battery: [
+        "battery",
+        "power",
+        "charge",
+        "charging",
+        "drain",
+        "draining"
+    ],
 
+    game: [
+        "game",
+        "gaming",
+        "gameplay"
+    ],
 
-internet: [
-"internet",
-"wifi",
-"wi-fi",
-"connection",
-"network"
-],
+    lag: [
+        "lag",
+        "lagging",
+        "laggy",
+        "stutter",
+        "stuttering",
+        "fps"
+    ],
 
+    javascript: [
+        "javascript",
+        "js",
+        "script"
+    ],
 
-disconnect: [
-"disconnect",
-"disconnecting",
-"dropping",
-"drops",
-"drop",
-"unstable"
-],
+    python: [
+        "python",
+        "py"
+    ],
 
+    css: [
+        "css",
+        "style",
+        "styling"
+    ],
 
-charge: [
-"charge",
-"charging",
-"charger",
-"power"
-],
+    website: [
+        "website",
+        "web",
+        "site",
+        "page"
+    ],
 
+    error: [
+        "error",
+        "broken",
+        "problem",
+        "issue",
+        "bug"
+    ],
 
-battery: [
-"battery",
-"power",
-"charge",
-"charging",
-"drain",
-"draining"
-],
+    phone: [
+        "phone",
+        "mobile",
+        "iphone",
+        "android"
+    ],
 
-
-game: [
-"game",
-"gaming",
-"gameplay"
-],
-
-
-lag: [
-"lag",
-"lagging",
-"laggy",
-"stutter",
-"stuttering",
-"fps"
-],
-
-
-javascript: [
-"javascript",
-"js",
-"script"
-],
-
-
-python: [
-"python",
-"py"
-],
-
-
-css: [
-"css",
-"style",
-"styling"
-],
-
-
-website: [
-"website",
-"web",
-"site",
-"page"
-],
-
-
-error: [
-"error",
-"broken",
-"problem",
-"issue",
-"bug",
-"doesnt",
-"doesn't"
-],
-
-
-phone: [
-"phone",
-"mobile",
-"iphone",
-"android"
-],
-
-
-hot: [
-"hot",
-"heating",
-"overheat",
-"overheating"
-]
+    hot: [
+        "hot",
+        "heating",
+        "overheat",
+        "overheating"
+    ]
 
 };
-
-
-/*
-Find related words.
-*/
 
 
 function getRelatedWords(word) {
 
+    for (const group in synonyms) {
 
-for (const group in synonyms) {
+        if (synonyms[group].includes(word)) {
+            return synonyms[group];
+        }
 
+    }
 
-if (synonyms[group].includes(word)) {
-
-return synonyms[group];
-
-}
-
-}
-
-
-return [word];
-
+    return [word];
 }
 
 
-/*
-Score every problem.
-The higher the score,
-the better the match.
-*/
+function searchProblems() {
 
+    const input = document
+        .getElementById("searchInput")
+        .value
+        .toLowerCase()
+        .trim();
 
-const results = problems.map(function(problem) {
+    if (!input) {
 
+        displayProblems(
+            [],
+            "Search results"
+        );
 
-const searchableText = (
+        return;
+    }
 
-problem.title +
-" " +
-problem.description +
-" " +
-problem.keywords.join(" ")
 
-).toLowerCase();
+    const words = input
+        .replace(/[^\w\s-]/g, "")
+        .split(/\s+/)
+        .filter(word => word.length > 1);
 
 
-let score = 0;
+    const results = problems.map(function(problem) {
 
+        const searchableText = (
 
-/*
-Check every word the user typed.
-*/
+            problem.title +
+            " " +
+            problem.description +
+            " " +
+            problem.keywords.join(" ")
 
+        ).toLowerCase();
 
-words.forEach(function(word) {
 
+        let score = 0;
 
-const relatedWords =
-getRelatedWords(word);
 
+        words.forEach(function(word) {
 
-relatedWords.forEach(function(related) {
+            const relatedWords =
+                getRelatedWords(word);
 
 
-if (searchableText.includes(related)) {
+            relatedWords.forEach(function(related) {
 
-score++;
+                if (searchableText.includes(related)) {
 
-}
+                    score++;
 
-});
+                }
 
+            });
 
-/*
-Exact word matches get an extra point.
-*/
 
+            if (searchableText.includes(word)) {
 
-if (searchableText.includes(word)) {
+                score += 2;
 
-score += 2;
+            }
 
-}
+        });
 
-});
 
+        if (
+            problem.title
+                .toLowerCase()
+                .includes(input)
+        ) {
 
-/*
-If the complete search phrase
-appears in the title,
-give it a big bonus.
-*/
+            score += 10;
 
+        }
 
-if (
-problem.title
-.toLowerCase()
-.includes(input)
-) {
 
-score += 10;
+        return {
+            problem: problem,
+            score: score
+        };
 
-}
+    });
 
 
-/*
-Check individual title words.
-*/
+    const matches = results
 
+        .filter(result => result.score > 0)
 
-const titleWords =
-problem.title
-.toLowerCase()
-.split(/\s+/);
+        .sort((a, b) => b.score - a.score)
 
+        .map(result => result.problem);
 
-words.forEach(function(word) {
 
-
-titleWords.forEach(function(titleWord) {
-
-
-if (
-titleWord.includes(word) ||
-word.includes(titleWord)
-) {
-
-score += 3;
-
-}
-
-});
-
-
-});
-
-
-return {
-
-problem: problem,
-
-score: score
-
-};
-
-
-});
-
-
-/*
-Only show actual matches.
-Sort from best to worst.
-*/
-
-
-const matches = results
-
-.filter(result => result.score > 0)
-
-.sort((a, b) => b.score - a.score)
-
-.map(result => result.problem);
-
-
-displayProblems(matches, "Search results");
+    displayProblems(
+        matches,
+        "Search results"
+    );
 
 }
 
 
-/* =========================
-   CATEGORY
-========================= */
+/* =========================================================
+   CATEGORIES
+========================================================= */
 
 
 function showCategory(category) {
 
+    const matches =
+        problems.filter(function(problem) {
 
-const matches = problems.filter(function(problem) {
+            return problem.category === category;
 
-return problem.category === category;
-
-});
+        });
 
 
-displayProblems(
-matches,
-"Problems in this category"
-);
+    displayProblems(
+        matches,
+        "Problems in this category"
+    );
 
 }
 
 
-/* =========================
-   DISPLAY RESULTS
-========================= */
+/* =========================================================
+   DISPLAY PROBLEMS
+========================================================= */
 
 
 function displayProblems(matches, title) {
 
-
-const container =
-document.getElementById("problems");
-
-
-container.innerHTML =
-"<h2 class='title'>" +
-title +
-"</h2>";
+    const container =
+        document.getElementById("problems");
 
 
-if (matches.length === 0) {
+    container.innerHTML =
+        "<h2 class='title'>" +
+        title +
+        "</h2>";
 
 
-container.innerHTML += `
+    if (matches.length === 0) {
 
-<div class="no-results">
+        container.innerHTML += `
 
-<h3>😕 We couldn't find a fix yet.</h3>
+            <div class="no-results">
 
-<br>
+                <h3>
+                    😕 We couldn't find a fix yet.
+                </h3>
 
-<p>
-Try words like:
-<strong>slow</strong>,
-<strong>wifi</strong>,
-<strong>battery</strong>,
-<strong>game</strong>,
-<strong>coding</strong>,
-or <strong>website</strong>.
-</p>
+                <br>
 
-</div>
+                <p>
+                    Try searching for something like
+                    <strong>slow laptop</strong>,
+                    <strong>wifi disconnecting</strong>,
+                    <strong>battery dying</strong>,
+                    <strong>game lagging</strong>,
+                    or
+                    <strong>javascript error</strong>.
+                </p>
 
-`;
+            </div>
 
+        `;
 
-return;
-
-}
-
-
-/*
-Show the matching problems.
-*/
+        return;
+    }
 
 
-matches.forEach(function(problem) {
+    matches.forEach(function(problem) {
+
+        const div =
+            document.createElement("div");
 
 
-const div =
-document.createElement("div");
+        div.className = "problem";
 
 
-div.className = "problem";
+        div.innerHTML =
+
+            "<h3>" +
+            problem.title +
+            "</h3>" +
+
+            "<p>" +
+            problem.description +
+            "</p>";
 
 
-div.innerHTML =
+        div.onclick = function() {
 
-"<h3>" +
-problem.title +
-"</h3>" +
+            showSolution(problem);
 
-"<p>" +
-problem.description +
-"</p>";
+        };
 
 
-div.onclick = function() {
+        container.appendChild(div);
 
-showSolution(problem);
-
-};
+    });
 
 
-container.appendChild(div);
-
-
-});
-
-
-container.scrollIntoView({
-
-behavior: "smooth"
-
-});
-
+    container.scrollIntoView({
+        behavior: "smooth"
+    });
 
 }
 
 
-/* =========================
-   SOLUTION
-========================= */
+/* =========================================================
+   SHOW SOLUTION
+========================================================= */
 
 
 function showSolution(problem) {
 
+    /*
+       Special diagnosis for slow computers.
+    */
 
-document.querySelector(".hero")
-.style.display = "none";
+    if (
+        problem.title ===
+        "My computer is slow"
+    ) {
 
+        startSlowComputerDiagnosis();
 
-document.querySelector(".container")
-.style.display = "none";
-
-
-document.getElementById("solution")
-.style.display = "block";
-
-
-document.getElementById("solutionTitle")
-.innerText =
-problem.title;
+        return;
+    }
 
 
-document.getElementById("solutionDescription")
-.innerText =
-problem.description;
+    document.querySelector(".hero")
+        .style.display = "none";
 
 
-const steps =
-document.getElementById("steps");
+    document.querySelector(".container")
+        .style.display = "none";
 
 
-steps.innerHTML = "";
+    document.getElementById("solution")
+        .style.display = "block";
 
 
-problem.steps.forEach(function(step, index) {
+    document.getElementById("solutionTitle")
+        .innerText = problem.title;
 
 
-const div =
-document.createElement("div");
+    document.getElementById("solutionDescription")
+        .innerText = problem.description;
 
 
-div.className = "step";
+    const steps =
+        document.getElementById("steps");
 
 
-div.innerHTML =
-
-"<label>" +
-
-"<input type='checkbox'>" +
-
-"<strong>Step " +
-(index + 1) +
-"</strong> " +
-
-step +
-
-"</label>";
+    steps.innerHTML = "";
 
 
-steps.appendChild(div);
+    problem.steps.forEach(function(step, index) {
+
+        const div =
+            document.createElement("div");
 
 
-});
+        div.className = "step";
 
 
-window.scrollTo(0,0);
+        div.innerHTML =
+
+            "<label>" +
+
+            "<input type='checkbox'>" +
+
+            "<strong>Step " +
+            (index + 1) +
+            "</strong> " +
+
+            step +
+
+            "</label>";
+
+
+        steps.appendChild(div);
+
+    });
+
+
+    window.scrollTo(0, 0);
 
 }
 
 
-/* =========================
-   BACK BUTTON
-========================= */
+/* =========================================================
+   COMPUTER DIAGNOSIS
+========================================================= */
+
+
+function startSlowComputerDiagnosis() {
+
+    document.querySelector(".hero")
+        .style.display = "none";
+
+
+    document.querySelector(".container")
+        .style.display = "none";
+
+
+    document.getElementById("solution")
+        .style.display = "block";
+
+
+    document.getElementById("solutionTitle")
+        .innerText =
+        "💻 Let's diagnose your slow computer";
+
+
+    document.getElementById("solutionDescription")
+        .innerText =
+        "Answer a few quick questions and FixIt will narrow down the likely cause.";
+
+
+    const steps =
+        document.getElementById("steps");
+
+
+    steps.innerHTML = `
+
+        <div class="step">
+
+            <h3>Question 1</h3>
+
+            <p style="margin:12px 0;color:#6b7280;">
+                What is actually slow?
+            </p>
+
+
+            <button
+                class="diagnosis-button"
+                onclick="slowComputerAnswer('everything')">
+
+                🐌 Almost everything
+
+            </button>
+
+
+            <button
+                class="diagnosis-button"
+                onclick="slowComputerAnswer('games')">
+
+                🎮 Mostly games
+
+            </button>
+
+
+            <button
+                class="diagnosis-button"
+                onclick="slowComputerAnswer('startup')">
+
+                🚀 Starting the computer takes forever
+
+            </button>
+
+
+            <button
+                class="diagnosis-button"
+                onclick="slowComputerAnswer('recent')">
+
+                📉 It suddenly became slow
+
+            </button>
+
+        </div>
+
+    `;
+
+
+    window.scrollTo(0, 0);
+
+}
+
+
+/* =========================================================
+   DIAGNOSIS ANSWERS
+========================================================= */
+
+
+function slowComputerAnswer(answer) {
+
+    const steps =
+        document.getElementById("steps");
+
+
+    /* EVERYTHING */
+
+    if (answer === "everything") {
+
+        steps.innerHTML = `
+
+            <div class="step">
+
+                <h3>
+                    💻 Let's check your storage
+                </h3>
+
+                <p style="margin:12px 0;color:#6b7280;">
+                    A nearly full drive can contribute
+                    to poor performance.
+                </p>
+
+
+                <button
+                    class="diagnosis-button"
+                    onclick="storageAnswer('full')">
+
+                    🔴 My storage is almost full
+
+                </button>
+
+
+                <button
+                    class="diagnosis-button"
+                    onclick="storageAnswer('space')">
+
+                    🟢 I have plenty of free space
+
+                </button>
+
+
+                <button
+                    class="diagnosis-button"
+                    onclick="storageAnswer('unknown')">
+
+                    ❓ I don't know
+
+                </button>
+
+            </div>
+
+        `;
+
+        return;
+    }
+
+
+    /* GAMES */
+
+    if (answer === "games") {
+
+        steps.innerHTML = `
+
+            <div class="result-warning">
+
+                <h3>
+                    🎮 This may be a gaming-performance problem.
+                </h3>
+
+                <br>
+
+                <p>
+                    Your computer being slow everywhere
+                    is different from games being slow.
+                </p>
+
+            </div>
+
+
+            <div class="step">
+
+                <h3>
+                    Try these first:
+                </h3>
+
+                <br>
+
+                <p>
+                    <strong>1.</strong>
+                    Lower the game's graphics settings.
+                </p>
+
+                <br>
+
+                <p>
+                    <strong>2.</strong>
+                    Close unnecessary programs.
+                </p>
+
+                <br>
+
+                <p>
+                    <strong>3.</strong>
+                    Update your graphics driver.
+                </p>
+
+                <br>
+
+                <p>
+                    <strong>4.</strong>
+                    Restart the computer.
+                </p>
+
+            </div>
+
+        `;
+
+        return;
+    }
+
+
+    /* STARTUP */
+
+    if (answer === "startup") {
+
+        steps.innerHTML = `
+
+            <div class="result-good">
+
+                <h3>
+                    🚀 Likely area: startup programs
+                </h3>
+
+            </div>
+
+
+            <div class="step">
+
+                <h3>
+                    Try this:
+                </h3>
+
+                <br>
+
+                <p>
+                    <strong>1.</strong>
+                    Press Ctrl + Shift + Esc.
+                </p>
+
+                <br>
+
+                <p>
+                    <strong>2.</strong>
+                    Open Task Manager.
+                </p>
+
+                <br>
+
+                <p>
+                    <strong>3.</strong>
+                    Go to Startup Apps.
+                </p>
+
+                <br>
+
+                <p>
+                    <strong>4.</strong>
+                    Disable programs you don't need
+                    starting automatically.
+                </p>
+
+            </div>
+
+        `;
+
+        return;
+    }
+
+
+    /* RECENT */
+
+    if (answer === "recent") {
+
+        steps.innerHTML = `
+
+            <div class="step">
+
+                <h3>
+                    📉 Something may have changed recently.
+                </h3>
+
+                <br>
+
+                <p>
+                    Think about what happened immediately
+                    before the slowdown.
+                </p>
+
+                <br>
+
+                <button
+                    class="diagnosis-button"
+                    onclick="recentAnswer('program')">
+
+                    📦 I installed a program
+
+                </button>
+
+
+                <button
+                    class="diagnosis-button"
+                    onclick="recentAnswer('update')">
+
+                    🔄 Windows recently updated
+
+                </button>
+
+
+                <button
+                    class="diagnosis-button"
+                    onclick="recentAnswer('nothing')">
+
+                    🤷 Nothing obvious changed
+
+                </button>
+
+            </div>
+
+        `;
+
+        return;
+    }
+
+}
+
+
+/* =========================================================
+   STORAGE DIAGNOSIS
+========================================================= */
+
+
+function storageAnswer(answer) {
+
+    const steps =
+        document.getElementById("steps");
+
+
+    if (answer === "full") {
+
+        steps.innerHTML = `
+
+            <div class="result-good">
+
+                <h3>
+                    🎯 Likely cause: low storage
+                </h3>
+
+                <p style="margin-top:10px;">
+                    Your storage being nearly full may be
+                    contributing to the slowdown.
+                </p>
+
+            </div>
+
+
+            <div class="step">
+
+                <h3>
+                    Try these steps:
+                </h3>
+
+                <br>
+
+                <p>
+                    <strong>1.</strong>
+                    Open your storage settings.
+                </p>
+
+                <br>
+
+                <p>
+                    <strong>2.</strong>
+                    Find large files you don't need.
+                </p>
+
+                <br>
+
+                <p>
+                    <strong>3.</strong>
+                    Uninstall applications you no longer use.
+                </p>
+
+                <br>
+
+                <p>
+                    <strong>4.</strong>
+                    Empty the recycle bin.
+                </p>
+
+                <br>
+
+                <p>
+                    <strong>5.</strong>
+                    Restart your computer.
+                </p>
+
+            </div>
+
+        `;
+
+        return;
+    }
+
+
+    if (answer === "space") {
+
+        steps.innerHTML = `
+
+            <div class="step">
+
+                <h3>
+                    🔎 Storage probably isn't the main problem.
+                </h3>
+
+                <p style="margin:12px 0;color:#6b7280;">
+                    Let's check whether another program
+                    is using too many resources.
+                </p>
+
+
+                <button
+                    class="diagnosis-button"
+                    onclick="resourceDiagnosis()">
+
+                    📊 Check resource usage →
+
+                </button>
+
+            </div>
+
+        `;
+
+        return;
+    }
+
+
+    if (answer === "unknown") {
+
+        steps.innerHTML = `
+
+            <div class="step">
+
+                <h3>
+                    💡 Let's check.
+                </h3>
+
+                <p style="margin:12px 0;color:#6b7280;">
+                    On Windows, open Settings →
+                    System → Storage.
+                </p>
+
+
+                <button
+                    class="diagnosis-button"
+                    onclick="storageAnswer('full')">
+
+                    🔴 It's almost full
+
+                </button>
+
+
+                <button
+                    class="diagnosis-button"
+                    onclick="storageAnswer('space')">
+
+                    🟢 I have plenty of space
+
+                </button>
+
+            </div>
+
+        `;
+
+    }
+
+}
+
+
+/* =========================================================
+   RESOURCE DIAGNOSIS
+========================================================= */
+
+
+function resourceDiagnosis() {
+
+    const steps =
+        document.getElementById("steps");
+
+
+    steps.innerHTML = `
+
+        <div class="step">
+
+            <h3>
+                📊 Check your computer resources
+            </h3>
+
+            <p style="margin:12px 0;color:#6b7280;">
+                This can help identify what is using
+                your computer's resources.
+            </p>
+
+            <br>
+
+            <p>
+                <strong>1.</strong>
+                Press <strong>Ctrl + Shift + Esc</strong>.
+            </p>
+
+            <br>
+
+            <p>
+                <strong>2.</strong>
+                Open Task Manager.
+            </p>
+
+            <br>
+
+            <p>
+                <strong>3.</strong>
+                Look at CPU usage.
+            </p>
+
+            <br>
+
+            <p>
+                <strong>4.</strong>
+                Look at Memory usage.
+            </p>
+
+            <br>
+
+            <p>
+                <strong>5.</strong>
+                Look at Disk usage.
+            </p>
+
+            <br>
+
+            <p>
+                If one program is using an unusually
+                large amount of resources, close it
+                and test your computer again.
+            </p>
+
+        </div>
+
+    `;
+
+}
+
+
+/* =========================================================
+   RECENT SLOWDOWN
+========================================================= */
+
+
+function recentAnswer(answer) {
+
+    const steps =
+        document.getElementById("steps");
+
+
+    if (answer === "program") {
+
+        steps.innerHTML = `
+
+            <div class="result-warning">
+
+                <h3>
+                    📦 A recently installed program
+                    could be involved.
+                </h3>
+
+            </div>
+
+
+            <div class="step">
+
+                <p>
+                    If the slowdown started immediately
+                    after installing something, try
+                    closing it or uninstalling it
+                    if you no longer need it.
+                </p>
+
+                <br>
+
+                <p>
+                    Then restart your computer and
+                    check whether performance improves.
+                </p>
+
+            </div>
+
+        `;
+
+        return;
+    }
+
+
+    if (answer === "update") {
+
+        steps.innerHTML = `
+
+            <div class="result-warning">
+
+                <h3>
+                    🔄 A recent update may be worth investigating.
+                </h3>
+
+            </div>
+
+
+            <div class="step">
+
+                <p>
+                    Check Windows Update for any
+                    additional updates or restart
+                    your computer if an update is
+                    waiting to finish.
+                </p>
+
+                <br>
+
+                <p>
+                    If the problem started immediately
+                    after an update, note the date and
+                    update before making major changes.
+                </p>
+
+            </div>
+
+        `;
+
+        return;
+    }
+
+
+    if (answer === "nothing") {
+
+        steps.innerHTML = `
+
+            <div class="step">
+
+                <h3>
+                    🔍 Let's start with the basics.
+                </h3>
+
+                <br>
+
+                <p>
+                    Restart your computer.
+                </p>
+
+                <br>
+
+                <p>
+                    Check available storage.
+                </p>
+
+                <br>
+
+                <p>
+                    Check Task Manager for programs
+                    using unusually high CPU or memory.
+                </p>
+
+            </div>
+
+        `;
+
+    }
+
+}
+
+
+/* =========================================================
+   BACK
+========================================================= */
 
 
 function goBack() {
 
-
-document.getElementById("solution")
-.style.display = "none";
-
-
-document.querySelector(".hero")
-.style.display = "block";
+    document.getElementById("solution")
+        .style.display = "none";
 
 
-document.querySelector(".container")
-.style.display = "block";
+    document.querySelector(".hero")
+        .style.display = "block";
 
 
-window.scrollTo(0,0);
+    document.querySelector(".container")
+        .style.display = "block";
+
+
+    window.scrollTo(0, 0);
 
 }
 
 
 </script>
 
-
 </body>
-
 </html>
