@@ -274,6 +274,7 @@ footer {
     </p>
 
     <div class="search">
+
         <input
             id="searchInput"
             type="text"
@@ -283,6 +284,7 @@ footer {
         <button onclick="searchProblems()">
             Find a Fix
         </button>
+
     </div>
 
 </section>
@@ -567,6 +569,84 @@ steps: [
 "Let the phone cool down before heavy use.",
 "If it becomes extremely hot repeatedly, contact the manufacturer or a qualified technician."
 ]
+},
+
+/* CODING PROBLEMS */
+
+{
+id: "javascript-error",
+title: "I have a JavaScript error",
+category: "coding",
+description: "Try these basic steps to understand and fix a JavaScript error.",
+keywords: ["javascript", "js", "error", "coding", "code"],
+steps: [
+"Read the exact error message carefully.",
+"Open your browser Developer Tools and check the Console.",
+"Look at the line number mentioned in the error.",
+"Check for missing brackets, quotes, parentheses, or other syntax mistakes.",
+"Make one change at a time and test the code again."
+]
+},
+
+{
+id: "python-error",
+title: "My Python code isn't working",
+category: "coding",
+description: "Use the error message to find where your Python code is failing.",
+keywords: ["python", "error", "coding", "programming"],
+steps: [
+"Read the final line of the error message.",
+"Find the line number mentioned in the traceback.",
+"Check the spelling of variables and functions.",
+"Check indentation carefully.",
+"Test the smallest part of the code that produces the error."
+]
+},
+
+{
+id: "website-blank",
+title: "My website is showing a blank page",
+category: "coding",
+description: "Check common causes of a blank HTML website.",
+keywords: ["website", "html", "blank", "coding", "web"],
+steps: [
+"Refresh the page.",
+"Open your browser Developer Tools.",
+"Check the Console for JavaScript errors.",
+"Check that your HTML tags are properly closed.",
+"Temporarily remove recently added JavaScript to identify the problem.",
+"Check that your CSS is not hiding the entire page."
+]
+},
+
+{
+id: "css-not-working",
+title: "My CSS isn't working",
+category: "coding",
+description: "Check common reasons why CSS changes don't appear.",
+keywords: ["css", "style", "html", "coding", "website"],
+steps: [
+"Check that your CSS is connected correctly.",
+"Make sure the filename and path are correct.",
+"Check the browser Developer Tools for CSS errors.",
+"Make sure another CSS rule isn't overriding your rule.",
+"Refresh the page and clear the browser cache if necessary."
+]
+},
+
+{
+id: "github-pages",
+title: "My GitHub Pages website isn't updating",
+category: "coding",
+description: "Try these steps if your latest GitHub changes aren't visible.",
+keywords: ["github", "pages", "website", "coding", "hosting"],
+steps: [
+"Make sure you committed your latest changes.",
+"Wait a few minutes for GitHub Pages to rebuild.",
+"Refresh the website.",
+"Try opening the website in a private browser window.",
+"Check Settings → Pages to make sure the correct branch is being published."
+]
 }
 
 ];
@@ -634,7 +714,6 @@ function displayResults(matches, title) {
             document.createElement("div");
 
         div.className = "problem";
-
         div.style.marginBottom = "12px";
 
         div.innerHTML = `
