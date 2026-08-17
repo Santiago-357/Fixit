@@ -1,12 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
+
 <meta charset="UTF-8">
+
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>FixIt — Find a Fix</title>
+<title>FixIt - Find a Fix</title>
 
 <style>
+
 * {
     box-sizing: border-box;
     margin: 0;
@@ -20,18 +24,17 @@ body {
 }
 
 header {
-    height: 70px;
     background: white;
     border-bottom: 1px solid #e5e7eb;
+    padding: 20px 7%;
     display: flex;
-    align-items: center;
     justify-content: space-between;
-    padding: 0 7%;
+    align-items: center;
 }
 
 .logo {
-    font-size: 24px;
-    font-weight: 800;
+    font-size: 25px;
+    font-weight: bold;
 }
 
 .logo span {
@@ -43,7 +46,6 @@ header {
     color: #4f46e5;
     padding: 8px 14px;
     border-radius: 20px;
-    font-size: 14px;
     font-weight: bold;
 }
 
@@ -54,9 +56,7 @@ header {
 
 .hero h1 {
     font-size: 52px;
-    line-height: 1.1;
-    max-width: 800px;
-    margin: auto;
+    margin-bottom: 20px;
 }
 
 .hero h1 span {
@@ -66,40 +66,35 @@ header {
 .hero p {
     color: #6b7280;
     font-size: 19px;
-    margin: 20px auto 35px;
-    max-width: 600px;
+    margin-bottom: 35px;
 }
 
 .search {
-    max-width: 720px;
+    max-width: 700px;
     margin: auto;
     display: flex;
     background: white;
     padding: 7px;
     border-radius: 15px;
-    box-shadow: 0 10px 35px rgba(0,0,0,0.08);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.08);
 }
 
 .search input {
     flex: 1;
     border: none;
     outline: none;
-    padding: 17px;
+    padding: 16px;
     font-size: 16px;
 }
 
 .search button {
-    border: none;
     background: #4f46e5;
     color: white;
+    border: none;
+    border-radius: 10px;
     padding: 0 25px;
-    border-radius: 11px;
     font-weight: bold;
     cursor: pointer;
-}
-
-.search button:hover {
-    opacity: 0.9;
 }
 
 .container {
@@ -108,9 +103,8 @@ header {
     padding: 20px;
 }
 
-.section-title {
-    margin: 35px 0 18px;
-    font-size: 25px;
+.title {
+    margin: 30px 0 18px;
 }
 
 .categories {
@@ -123,33 +117,31 @@ header {
     background: white;
     border: 1px solid #e5e7eb;
     border-radius: 15px;
-    padding: 22px 10px;
+    padding: 25px 10px;
     text-align: center;
     cursor: pointer;
-    transition: 0.2s;
 }
 
 .category:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 8px 20px rgba(0,0,0,0.06);
+    border-color: #4f46e5;
+    transform: translateY(-2px);
 }
 
-.category .icon {
-    font-size: 28px;
-    margin-bottom: 8px;
+.icon {
+    font-size: 30px;
+    margin-bottom: 10px;
 }
 
-.popular {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 12px;
+.problems {
+    margin-top: 30px;
 }
 
 .problem {
     background: white;
-    padding: 20px;
-    border-radius: 15px;
     border: 1px solid #e5e7eb;
+    border-radius: 15px;
+    padding: 20px;
+    margin-bottom: 12px;
     cursor: pointer;
 }
 
@@ -158,27 +150,18 @@ header {
 }
 
 .problem h3 {
-    margin-bottom: 7px;
+    margin-bottom: 8px;
 }
 
 .problem p {
     color: #6b7280;
-    font-size: 14px;
-}
-
-#results {
-    margin-top: 30px;
-}
-
-.result-title {
-    margin-bottom: 15px;
 }
 
 .solution {
     display: none;
     max-width: 800px;
-    margin: 40px auto;
-    padding: 30px;
+    margin: 50px auto;
+    padding: 25px;
 }
 
 .back {
@@ -193,44 +176,38 @@ header {
     margin-bottom: 10px;
 }
 
-.solution-description {
+.description {
     color: #6b7280;
     margin-bottom: 25px;
 }
 
 .step {
     background: white;
-    padding: 20px;
-    margin: 12px 0;
-    border-radius: 14px;
     border: 1px solid #e5e7eb;
+    border-radius: 12px;
+    padding: 18px;
+    margin-bottom: 12px;
 }
 
 .step input {
     margin-right: 10px;
 }
 
-.step strong {
-    margin-right: 5px;
-}
-
 .warning {
     background: #fff7ed;
-    border: 1px solid #fed7aa;
     padding: 15px;
-    border-radius: 12px;
+    border-radius: 10px;
     margin-top: 20px;
     color: #9a3412;
 }
 
 footer {
     text-align: center;
-    padding: 50px 20px;
+    padding: 50px;
     color: #6b7280;
-    font-size: 14px;
 }
 
-@media (max-width: 750px) {
+@media(max-width:750px) {
 
     .hero h1 {
         font-size: 40px;
@@ -240,10 +217,6 @@ footer {
         grid-template-columns: repeat(2, 1fr);
     }
 
-    .popular {
-        grid-template-columns: 1fr;
-    }
-
     .search {
         flex-direction: column;
     }
@@ -251,547 +224,637 @@ footer {
     .search button {
         height: 50px;
     }
+
 }
+
 </style>
+
 </head>
+
 
 <body>
 
+
 <header>
-    <div class="logo">🔧 <span>FixIt</span></div>
-    <div class="badge">100% Free</div>
+
+<div class="logo">
+🔧 <span>FixIt</span>
+</div>
+
+<div class="badge">
+100% Free
+</div>
+
 </header>
+
 
 <section class="hero">
 
-    <h1>
-        Got a problem?
-        <span>Let's fix it.</span>
-    </h1>
+<h1>
+Got a problem?
+<span>Let's fix it.</span>
+</h1>
 
-    <p>
-        Find simple, step-by-step solutions for everyday technology problems.
-    </p>
+<p>
+Find simple step-by-step solutions for technology problems.
+</p>
 
-    <div class="search">
+<div class="search">
 
-        <input
-            id="searchInput"
-            type="text"
-            placeholder="Example: My laptop is slow..."
-        >
+<input
+id="searchInput"
+placeholder="Example: My laptop is slow..."
+>
 
-        <button onclick="searchProblems()">
-            Find a Fix
-        </button>
-
-    </div>
-
-</section>
-
-<div class="container">
-
-    <h2 class="section-title">Browse problems</h2>
-
-    <div class="categories">
-
-        <div class="category" onclick="showCategory('computer')">
-            <div class="icon">💻</div>
-            Computer
-        </div>
-
-        <div class="category" onclick="showCategory('internet')">
-            <div class="icon">🌐</div>
-            Internet
-        </div>
-
-        <div class="category" onclick="showCategory('phone')">
-            <div class="icon">📱</div>
-            Phone
-        </div>
-
-        <div class="category" onclick="showCategory('gaming')">
-            <div class="icon">🎮</div>
-            Gaming
-        </div>
-
-        <div class="category" onclick="showCategory('coding')">
-            <div class="icon">💻</div>
-            Coding
-        </div>
-
-    </div>
-
-    <h2 class="section-title">🔥 Popular fixes</h2>
-
-    <div class="popular">
-
-        <div class="problem" onclick="openProblem('computer-slow')">
-            <h3>💻 My computer is slow</h3>
-            <p>Find common causes and improve performance.</p>
-        </div>
-
-        <div class="problem" onclick="openProblem('wifi-slow')">
-            <h3>🌐 My Wi-Fi is slow</h3>
-            <p>Check your connection and improve your speed.</p>
-        </div>
-
-        <div class="problem" onclick="openProblem('phone-charge')">
-            <h3>📱 My phone won't charge</h3>
-            <p>Check the charger, port and battery.</p>
-        </div>
-
-        <div class="problem" onclick="openProblem('game-lag')">
-            <h3>🎮 My game is lagging</h3>
-            <p>Improve FPS and reduce connection problems.</p>
-        </div>
-
-    </div>
-
-    <div id="results"></div>
+<button onclick="searchProblems()">
+Find a Fix
+</button>
 
 </div>
 
+</section>
+
+
+<div class="container">
+
+<h2 class="title">
+Browse problems
+</h2>
+
+
+<div class="categories">
+
+
+<div class="category" onclick="showCategory('computer')">
+
+<div class="icon">
+💻
+</div>
+
+Computer
+
+</div>
+
+
+<div class="category" onclick="showCategory('internet')">
+
+<div class="icon">
+🌐
+</div>
+
+Internet
+
+</div>
+
+
+<div class="category" onclick="showCategory('phone')">
+
+<div class="icon">
+📱
+</div>
+
+Phone
+
+</div>
+
+
+<div class="category" onclick="showCategory('gaming')">
+
+<div class="icon">
+🎮
+</div>
+
+Gaming
+
+</div>
+
+
+<div class="category" onclick="showCategory('coding')">
+
+<div class="icon">
+👨‍💻
+</div>
+
+Coding
+
+</div>
+
+
+</div>
+
+
+<div id="problems" class="problems">
+
+</div>
+
+
+</div>
+
+
 <section id="solution" class="solution">
 
-    <div class="back" onclick="goBack()">← Back</div>
+<div class="back" onclick="goBack()">
+← Back
+</div>
 
-    <h2 id="solutionTitle"></h2>
+<h2 id="solutionTitle">
+</h2>
 
-    <p id="solutionDescription" class="solution-description"></p>
+<p id="solutionDescription" class="description">
+</p>
 
-    <div id="steps"></div>
+<div id="steps">
+</div>
 
-    <div class="warning">
-        ⚠️ If a step could damage your device or involves electrical hardware,
-        stop and contact a qualified professional.
-    </div>
+<div class="warning">
+
+⚠️ If a problem involves electricity, damaged hardware,
+or anything unsafe, stop and contact a qualified professional.
+
+</div>
 
 </section>
 
+
 <footer>
-    FixIt — Simple solutions for everyday problems.
+
+FixIt — Simple solutions for everyday problems.
+
 </footer>
+
 
 <script>
 
+
 const problems = [
 
+
+/* COMPUTER */
+
+
 {
-id: "computer-slow",
 title: "My computer is slow",
 category: "computer",
-description: "Try these safe steps before considering more complicated repairs.",
-keywords: ["computer", "pc", "laptop", "slow", "windows"],
+description: "Improve your computer's performance.",
+keywords: ["computer","pc","laptop","slow"],
 steps: [
 "Restart your computer.",
-"Open Task Manager and check whether CPU or memory usage is unusually high.",
 "Close programs you are not using.",
-"Check how much free storage space you have.",
-"Disable unnecessary programs from starting automatically.",
-"Install available operating-system updates.",
-"Restart the computer and check whether performance improved."
+"Check how much storage space is available.",
+"Disable unnecessary startup programs.",
+"Install available system updates."
 ]
 },
 
-{
-id: "wifi-slow",
-title: "My Wi-Fi is slow",
-category: "internet",
-description: "Work through these steps to identify common connection problems.",
-keywords: ["wifi", "internet", "slow", "connection", "router"],
-steps: [
-"Restart your router and wait about one minute before reconnecting.",
-"Move closer to the router and test the connection.",
-"Disconnect devices that are not currently being used.",
-"Run an internet speed test.",
-"Try connecting another device to the same Wi-Fi network.",
-"If every device is slow, contact your internet provider."
-]
-},
 
 {
-id: "wifi-disconnect",
-title: "My Wi-Fi keeps disconnecting",
-category: "internet",
-description: "Frequent disconnections can have several causes.",
-keywords: ["wifi", "disconnect", "internet", "router"],
-steps: [
-"Restart your router.",
-"Check whether the problem happens on multiple devices.",
-"Move closer to the router.",
-"Forget the Wi-Fi network and reconnect.",
-"Check whether your router has available firmware updates.",
-"If the problem continues on every device, contact your internet provider."
-]
-},
-
-{
-id: "phone-charge",
-title: "My phone won't charge",
-category: "phone",
-description: "Check the simple causes before assuming the battery is damaged.",
-keywords: ["phone", "charge", "charging", "battery"],
-steps: [
-"Try a different charging cable.",
-"Try a different power adapter or outlet.",
-"Inspect the charging port for visible dust or debris.",
-"Restart your phone.",
-"Leave the phone connected to power for several minutes.",
-"If the phone still will not charge, contact the manufacturer or a qualified repair service."
-]
-},
-
-{
-id: "phone-battery",
-title: "My phone battery drains quickly",
-category: "phone",
-description: "Find which apps and settings may be using excessive battery.",
-keywords: ["phone", "battery", "drain", "android", "iphone"],
-steps: [
-"Open your battery settings and check which apps use the most power.",
-"Reduce screen brightness.",
-"Disable unnecessary background activity.",
-"Turn off location access for apps that do not need it.",
-"Install available system updates.",
-"Restart the phone and monitor battery usage."
-]
-},
-
-{
-id: "game-lag",
-title: "My game is lagging",
-category: "gaming",
-description: "Try these steps if your game has low FPS or connection lag.",
-keywords: ["game", "gaming", "lag", "fps", "stutter"],
-steps: [
-"Restart the game.",
-"Close unnecessary programs running in the background.",
-"Check your internet connection if the game is online.",
-"Lower the game's graphics settings.",
-"Make sure your graphics drivers are up to date.",
-"Restart your computer and test the game again."
-]
-},
-
-{
-id: "game-crash",
-title: "My game keeps crashing",
-category: "gaming",
-description: "Try these common fixes for repeated game crashes.",
-keywords: ["game", "crash", "gaming", "steam"],
-steps: [
-"Restart the game and your computer.",
-"Check that the game is fully updated.",
-"Check the game's files using the platform's file verification feature.",
-"Update your graphics drivers.",
-"Close unnecessary background programs.",
-"If the problem started after an update, check the game's official support page."
-]
-},
-
-{
-id: "bluetooth",
-title: "Bluetooth isn't working",
-category: "computer",
-description: "Check the connection and device settings.",
-keywords: ["bluetooth", "computer", "phone", "wireless"],
-steps: [
-"Make sure Bluetooth is enabled.",
-"Turn Bluetooth off and back on.",
-"Restart both devices.",
-"Forget the Bluetooth device and pair it again.",
-"Check for available system updates.",
-"Try connecting another Bluetooth device to determine whether the problem is device-specific."
-]
-},
-
-{
-id: "no-sound",
 title: "My computer has no sound",
 category: "computer",
-description: "Check the most common audio problems.",
-keywords: ["sound", "audio", "speaker", "computer", "headphones"],
+description: "Check common causes of missing computer audio.",
+keywords: ["sound","audio","speaker","headphones"],
 steps: [
 "Make sure your volume is not muted.",
-"Check which audio output device is selected.",
-"Disconnect and reconnect your headphones or speakers.",
-"Restart the computer.",
-"Check for available audio-driver updates.",
-"Test another pair of headphones or speakers."
+"Check the selected audio output.",
+"Reconnect your headphones or speakers.",
+"Restart your computer.",
+"Try another pair of headphones or speakers."
 ]
 },
 
+
 {
-id: "website-not-loading",
+title: "My computer storage is full",
+category: "computer",
+description: "Free storage without deleting important system files.",
+keywords: ["storage","space","disk","full"],
+steps: [
+"Check which files use the most storage.",
+"Remove applications you no longer use.",
+"Empty the recycle bin.",
+"Move large personal files to another trusted storage location.",
+"Use your operating system's built-in storage cleanup tools."
+]
+},
+
+
+/* INTERNET */
+
+
+{
+title: "My Wi-Fi is slow",
+category: "internet",
+description: "Try these steps to improve your connection.",
+keywords: ["wifi","internet","slow","router"],
+steps: [
+"Restart your router.",
+"Move closer to the router.",
+"Disconnect devices you aren't using.",
+"Run an internet speed test.",
+"Test another device on the same network."
+]
+},
+
+
+{
+title: "My Wi-Fi keeps disconnecting",
+category: "internet",
+description: "Check common causes of repeated Wi-Fi disconnections.",
+keywords: ["wifi","disconnect","connection"],
+steps: [
+"Restart your router.",
+"Restart your computer or phone.",
+"Forget the Wi-Fi network and reconnect.",
+"Move closer to the router.",
+"Check whether other devices have the same problem."
+]
+},
+
+
+{
 title: "A website won't load",
 category: "internet",
-description: "Try these steps if one or more websites won't open.",
-keywords: ["website", "web", "browser", "internet", "chrome"],
+description: "Try these steps if a website won't open.",
+keywords: ["website","browser","internet","chrome"],
 steps: [
 "Refresh the page.",
-"Try opening another website.",
-"Try the website in a private/incognito window.",
+"Try another website.",
 "Restart your browser.",
 "Try another browser.",
-"Restart your internet connection.",
-"If only one website is unavailable, the problem may be on that website's side."
+"Restart your internet connection."
 ]
 },
 
+
+/* PHONE */
+
+
 {
-id: "storage-full",
-title: "My storage is full",
-category: "computer",
-description: "Free space safely without deleting important files.",
-keywords: ["storage", "disk", "space", "full", "computer"],
+title: "My phone won't charge",
+category: "phone",
+description: "Check the charger and connection.",
+keywords: ["phone","charge","charging","battery"],
 steps: [
-"Check which files or applications are using the most space.",
-"Remove applications you no longer use.",
-"Empty your recycle bin.",
-"Move large personal files to external storage or another trusted location.",
-"Remove temporary files using your operating system's built-in cleanup tools.",
-"Do not delete system files unless you know exactly what they are."
+"Try another charging cable.",
+"Try another power adapter.",
+"Try another electrical outlet.",
+"Check the charging port for visible debris.",
+"Restart your phone."
 ]
 },
 
+
 {
-id: "phone-overheat",
+title: "My phone battery drains quickly",
+category: "phone",
+description: "Find what is using your battery.",
+keywords: ["phone","battery","drain"],
+steps: [
+"Check battery usage in your phone settings.",
+"Reduce screen brightness.",
+"Close unnecessary apps.",
+"Disable unnecessary location services.",
+"Install available system updates."
+]
+},
+
+
+{
 title: "My phone is overheating",
 category: "phone",
 description: "Try these basic steps if your phone becomes unusually hot.",
-keywords: ["phone", "hot", "overheat", "temperature"],
+keywords: ["phone","hot","overheat"],
 steps: [
-"Stop demanding apps such as games or video editors.",
-"Remove the phone from direct sunlight.",
-"Remove the case temporarily if it traps heat.",
+"Stop demanding apps such as games.",
+"Move the phone away from direct sunlight.",
+"Remove the case temporarily.",
 "Close unnecessary apps.",
-"Let the phone cool down before heavy use.",
-"If it becomes extremely hot repeatedly, contact the manufacturer or a qualified technician."
+"Allow the phone to cool down."
 ]
 },
 
-/* CODING PROBLEMS */
+
+/* GAMING */
+
 
 {
-id: "javascript-error",
-title: "I have a JavaScript error",
-category: "coding",
-description: "Try these basic steps to understand and fix a JavaScript error.",
-keywords: ["javascript", "js", "error", "coding", "code"],
+title: "My game is lagging",
+category: "gaming",
+description: "Improve FPS and reduce common gaming lag.",
+keywords: ["game","gaming","lag","fps"],
 steps: [
-"Read the exact error message carefully.",
-"Open your browser Developer Tools and check the Console.",
-"Look at the line number mentioned in the error.",
-"Check for missing brackets, quotes, parentheses, or other syntax mistakes.",
-"Make one change at a time and test the code again."
+"Restart the game.",
+"Close unnecessary background programs.",
+"Check your internet connection if the game is online.",
+"Lower graphics settings.",
+"Update your graphics drivers."
 ]
 },
 
+
 {
-id: "python-error",
+title: "My game keeps crashing",
+category: "gaming",
+description: "Try these common fixes for game crashes.",
+keywords: ["game","crash","gaming"],
+steps: [
+"Restart the game.",
+"Restart your computer.",
+"Update the game.",
+"Verify the game's files using your gaming platform.",
+"Update your graphics drivers."
+]
+},
+
+
+/* CODING */
+
+
+{
+title: "My JavaScript code has an error",
+category: "coding",
+description: "Find common JavaScript errors.",
+keywords: ["javascript","js","coding","code","error"],
+steps: [
+"Read the exact error message.",
+"Open your browser Developer Tools.",
+"Open the Console.",
+"Look at the line number shown in the error.",
+"Check for missing brackets, quotes, or parentheses.",
+"Fix one thing at a time and test again."
+]
+},
+
+
+{
 title: "My Python code isn't working",
 category: "coding",
-description: "Use the error message to find where your Python code is failing.",
-keywords: ["python", "error", "coding", "programming"],
+description: "Use the error message to find the problem.",
+keywords: ["python","coding","programming","error"],
 steps: [
-"Read the final line of the error message.",
-"Find the line number mentioned in the traceback.",
-"Check the spelling of variables and functions.",
-"Check indentation carefully.",
-"Test the smallest part of the code that produces the error."
+"Read the error message carefully.",
+"Find the line number in the traceback.",
+"Check variable names.",
+"Check your indentation.",
+"Test a smaller part of your program."
 ]
 },
 
+
 {
-id: "website-blank",
-title: "My website is showing a blank page",
+title: "My website is blank",
 category: "coding",
-description: "Check common causes of a blank HTML website.",
-keywords: ["website", "html", "blank", "coding", "web"],
+description: "Find common causes of blank websites.",
+keywords: ["website","html","blank","coding"],
 steps: [
 "Refresh the page.",
-"Open your browser Developer Tools.",
-"Check the Console for JavaScript errors.",
-"Check that your HTML tags are properly closed.",
-"Temporarily remove recently added JavaScript to identify the problem.",
-"Check that your CSS is not hiding the entire page."
+"Open Developer Tools.",
+"Check the Console for errors.",
+"Check that your HTML tags are closed.",
+"Check your JavaScript for errors."
 ]
 },
 
+
 {
-id: "css-not-working",
 title: "My CSS isn't working",
 category: "coding",
-description: "Check common reasons why CSS changes don't appear.",
-keywords: ["css", "style", "html", "coding", "website"],
+description: "Check why your CSS changes aren't appearing.",
+keywords: ["css","html","style","coding"],
 steps: [
-"Check that your CSS is connected correctly.",
-"Make sure the filename and path are correct.",
-"Check the browser Developer Tools for CSS errors.",
-"Make sure another CSS rule isn't overriding your rule.",
-"Refresh the page and clear the browser cache if necessary."
+"Check that your CSS file is connected.",
+"Check the filename and path.",
+"Open Developer Tools.",
+"Check whether another CSS rule overrides your rule.",
+"Refresh the page."
 ]
 },
 
+
 {
-id: "github-pages",
 title: "My GitHub Pages website isn't updating",
 category: "coding",
-description: "Try these steps if your latest GitHub changes aren't visible.",
-keywords: ["github", "pages", "website", "coding", "hosting"],
+description: "Check why your latest website changes aren't visible.",
+keywords: ["github","pages","website","hosting","coding"],
 steps: [
-"Make sure you committed your latest changes.",
+"Make sure you committed your changes.",
 "Wait a few minutes for GitHub Pages to rebuild.",
 "Refresh the website.",
-"Try opening the website in a private browser window.",
-"Check Settings → Pages to make sure the correct branch is being published."
+"Try a private browser window.",
+"Check Settings → Pages and make sure the correct branch is selected."
 ]
 }
+
 
 ];
 
 
-function searchProblems() {
-
-    const input =
-        document.getElementById("searchInput").value.toLowerCase().trim();
-
-    if (!input) {
-        showCategory("computer");
-        return;
-    }
-
-    const matches = problems.filter(problem => {
-
-        const text =
-            problem.title + " " +
-            problem.description + " " +
-            problem.keywords.join(" ");
-
-        return text.toLowerCase().includes(input);
-    });
-
-    displayResults(matches, "Search results");
-}
-
-
 function showCategory(category) {
 
-    const matches =
-        problems.filter(problem => problem.category === category);
 
-    displayResults(matches, "Problems in this category");
+const matches = problems.filter(function(problem) {
+
+return problem.category === category;
+
+});
+
+
+displayProblems(matches, "Problems in this category");
+
 }
 
 
-function displayResults(matches, title) {
+function searchProblems() {
 
-    const results =
-        document.getElementById("results");
 
-    results.innerHTML = "";
+const input =
+document.getElementById("searchInput")
+.value
+.toLowerCase()
+.trim();
 
-    if (matches.length === 0) {
 
-        results.innerHTML = `
-            <h2 class="result-title">No fix found yet</h2>
-            <p>
-                We haven't added a solution for that problem yet.
-                That's something we'll improve as FixIt grows.
-            </p>
-        `;
+const matches = problems.filter(function(problem) {
 
-        return;
-    }
 
-    results.innerHTML =
-        `<h2 class="result-title">${title}</h2>`;
+const text =
+problem.title +
+" " +
+problem.description +
+" " +
+problem.keywords.join(" ");
 
-    matches.forEach(problem => {
 
-        const div =
-            document.createElement("div");
+return text.toLowerCase().includes(input);
 
-        div.className = "problem";
-        div.style.marginBottom = "12px";
 
-        div.innerHTML = `
-            <h3>${problem.title}</h3>
-            <p>${problem.description}</p>
-        `;
+});
 
-        div.onclick = () =>
-            showSolution(problem);
 
-        results.appendChild(div);
-    });
+displayProblems(matches, "Search results");
 
-    results.scrollIntoView({
-        behavior: "smooth"
-    });
 }
 
 
-function openProblem(id) {
+function displayProblems(matches, title) {
 
-    const problem =
-        problems.find(item => item.id === id);
 
-    showSolution(problem);
+const container =
+document.getElementById("problems");
+
+
+container.innerHTML =
+"<h2 class='title'>" +
+title +
+"</h2>";
+
+
+if(matches.length === 0) {
+
+
+container.innerHTML +=
+"<p>No fixes found yet.</p>";
+
+
+return;
+
+}
+
+
+matches.forEach(function(problem) {
+
+
+const div =
+document.createElement("div");
+
+
+div.className = "problem";
+
+
+div.innerHTML =
+
+"<h3>" +
+problem.title +
+"</h3>" +
+
+"<p>" +
+problem.description +
+"</p>";
+
+
+div.onclick = function() {
+
+showSolution(problem);
+
+};
+
+
+container.appendChild(div);
+
+
+});
+
+
+container.scrollIntoView({
+
+behavior: "smooth"
+
+});
+
+
 }
 
 
 function showSolution(problem) {
 
-    document.querySelector(".hero").style.display = "none";
-    document.querySelector(".container").style.display = "none";
-    document.getElementById("solution").style.display = "block";
 
-    document.getElementById("solutionTitle").innerText =
-        problem.title;
+document.querySelector(".hero")
+.style.display = "none";
 
-    document.getElementById("solutionDescription").innerText =
-        problem.description;
 
-    const steps =
-        document.getElementById("steps");
+document.querySelector(".container")
+.style.display = "none";
 
-    steps.innerHTML = "";
 
-    problem.steps.forEach((step, index) => {
+document.getElementById("solution")
+.style.display = "block";
 
-        const div =
-            document.createElement("div");
 
-        div.className = "step";
+document.getElementById("solutionTitle")
+.innerText =
+problem.title;
 
-        div.innerHTML = `
-            <label>
-                <input type="checkbox">
-                <strong>Step ${index + 1}</strong>
-                ${step}
-            </label>
-        `;
 
-        steps.appendChild(div);
-    });
+document.getElementById("solutionDescription")
+.innerText =
+problem.description;
 
-    window.scrollTo(0, 0);
+
+const steps =
+document.getElementById("steps");
+
+
+steps.innerHTML = "";
+
+
+problem.steps.forEach(function(step, index) {
+
+
+const div =
+document.createElement("div");
+
+
+div.className = "step";
+
+
+div.innerHTML =
+
+"<label>" +
+
+"<input type='checkbox'>" +
+
+"<strong>Step " +
+(index + 1) +
+"</strong> " +
+
+step +
+
+"</label>";
+
+
+steps.appendChild(div);
+
+
+});
+
+
+window.scrollTo(0,0);
+
 }
 
 
 function goBack() {
 
-    document.getElementById("solution").style.display = "none";
 
-    document.querySelector(".hero").style.display = "block";
-    document.querySelector(".container").style.display = "block";
+document.getElementById("solution")
+.style.display = "none";
 
-    window.scrollTo(0, 0);
+
+document.querySelector(".hero")
+.style.display = "block";
+
+
+document.querySelector(".container")
+.style.display = "block";
+
+
+window.scrollTo(0,0);
+
 }
+
 
 </script>
 
+
 </body>
+
 </html>
