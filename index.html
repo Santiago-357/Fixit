@@ -97,6 +97,10 @@ header {
     cursor: pointer;
 }
 
+.search button:hover {
+    opacity: 0.9;
+}
+
 .container {
     max-width: 1000px;
     margin: auto;
@@ -120,6 +124,7 @@ header {
     padding: 25px 10px;
     text-align: center;
     cursor: pointer;
+    transition: 0.2s;
 }
 
 .category:hover {
@@ -143,10 +148,12 @@ header {
     padding: 20px;
     margin-bottom: 12px;
     cursor: pointer;
+    transition: 0.2s;
 }
 
 .problem:hover {
     border-color: #4f46e5;
+    transform: translateY(-2px);
 }
 
 .problem h3 {
@@ -154,6 +161,15 @@ header {
 }
 
 .problem p {
+    color: #6b7280;
+}
+
+.no-results {
+    background: white;
+    border: 1px solid #e5e7eb;
+    border-radius: 15px;
+    padding: 30px;
+    text-align: center;
     color: #6b7280;
 }
 
@@ -263,7 +279,9 @@ Find simple step-by-step solutions for technology problems.
 
 <input
 id="searchInput"
+type="text"
 placeholder="Example: My laptop is slow..."
+onkeydown="if(event.key === 'Enter') searchProblems()"
 >
 
 <button onclick="searchProblems()">
@@ -389,14 +407,25 @@ FixIt — Simple solutions for everyday problems.
 const problems = [
 
 
-/* COMPUTER */
+/* =========================
+   COMPUTER
+========================= */
 
 
 {
 title: "My computer is slow",
 category: "computer",
 description: "Improve your computer's performance.",
-keywords: ["computer","pc","laptop","slow"],
+keywords: [
+"computer",
+"pc",
+"laptop",
+"slow",
+"sluggish",
+"laggy",
+"speed",
+"performance"
+],
 steps: [
 "Restart your computer.",
 "Close programs you are not using.",
@@ -411,7 +440,15 @@ steps: [
 title: "My computer has no sound",
 category: "computer",
 description: "Check common causes of missing computer audio.",
-keywords: ["sound","audio","speaker","headphones"],
+keywords: [
+"sound",
+"audio",
+"speaker",
+"speakers",
+"headphones",
+"volume",
+"computer"
+],
 steps: [
 "Make sure your volume is not muted.",
 "Check the selected audio output.",
@@ -426,7 +463,15 @@ steps: [
 title: "My computer storage is full",
 category: "computer",
 description: "Free storage without deleting important system files.",
-keywords: ["storage","space","disk","full"],
+keywords: [
+"storage",
+"space",
+"disk",
+"full",
+"drive",
+"memory",
+"computer"
+],
 steps: [
 "Check which files use the most storage.",
 "Remove applications you no longer use.",
@@ -437,14 +482,25 @@ steps: [
 },
 
 
-/* INTERNET */
+/* =========================
+   INTERNET
+========================= */
 
 
 {
 title: "My Wi-Fi is slow",
 category: "internet",
 description: "Try these steps to improve your connection.",
-keywords: ["wifi","internet","slow","router"],
+keywords: [
+"wifi",
+"wi-fi",
+"wireless",
+"internet",
+"slow",
+"speed",
+"connection",
+"network"
+],
 steps: [
 "Restart your router.",
 "Move closer to the router.",
@@ -459,7 +515,17 @@ steps: [
 title: "My Wi-Fi keeps disconnecting",
 category: "internet",
 description: "Check common causes of repeated Wi-Fi disconnections.",
-keywords: ["wifi","disconnect","connection"],
+keywords: [
+"wifi",
+"wi-fi",
+"internet",
+"disconnect",
+"disconnecting",
+"dropping",
+"drops",
+"connection",
+"network"
+],
 steps: [
 "Restart your router.",
 "Restart your computer or phone.",
@@ -474,7 +540,17 @@ steps: [
 title: "A website won't load",
 category: "internet",
 description: "Try these steps if a website won't open.",
-keywords: ["website","browser","internet","chrome"],
+keywords: [
+"website",
+"web",
+"site",
+"page",
+"browser",
+"internet",
+"chrome",
+"load",
+"loading"
+],
 steps: [
 "Refresh the page.",
 "Try another website.",
@@ -485,14 +561,23 @@ steps: [
 },
 
 
-/* PHONE */
+/* =========================
+   PHONE
+========================= */
 
 
 {
 title: "My phone won't charge",
 category: "phone",
 description: "Check the charger and connection.",
-keywords: ["phone","charge","charging","battery"],
+keywords: [
+"phone",
+"charge",
+"charging",
+"charger",
+"battery",
+"power"
+],
 steps: [
 "Try another charging cable.",
 "Try another power adapter.",
@@ -507,7 +592,16 @@ steps: [
 title: "My phone battery drains quickly",
 category: "phone",
 description: "Find what is using your battery.",
-keywords: ["phone","battery","drain"],
+keywords: [
+"phone",
+"battery",
+"drain",
+"draining",
+"dies",
+"dying",
+"power",
+"charge"
+],
 steps: [
 "Check battery usage in your phone settings.",
 "Reduce screen brightness.",
@@ -522,7 +616,14 @@ steps: [
 title: "My phone is overheating",
 category: "phone",
 description: "Try these basic steps if your phone becomes unusually hot.",
-keywords: ["phone","hot","overheat"],
+keywords: [
+"phone",
+"hot",
+"hotter",
+"overheat",
+"overheating",
+"temperature"
+],
 steps: [
 "Stop demanding apps such as games.",
 "Move the phone away from direct sunlight.",
@@ -533,14 +634,26 @@ steps: [
 },
 
 
-/* GAMING */
+/* =========================
+   GAMING
+========================= */
 
 
 {
 title: "My game is lagging",
 category: "gaming",
 description: "Improve FPS and reduce common gaming lag.",
-keywords: ["game","gaming","lag","fps"],
+keywords: [
+"game",
+"gaming",
+"lag",
+"lagging",
+"laggy",
+"stutter",
+"stuttering",
+"fps",
+"slow"
+],
 steps: [
 "Restart the game.",
 "Close unnecessary background programs.",
@@ -555,7 +668,14 @@ steps: [
 title: "My game keeps crashing",
 category: "gaming",
 description: "Try these common fixes for game crashes.",
-keywords: ["game","crash","gaming"],
+keywords: [
+"game",
+"gaming",
+"crash",
+"crashing",
+"broken",
+"steam"
+],
 steps: [
 "Restart the game.",
 "Restart your computer.",
@@ -566,14 +686,26 @@ steps: [
 },
 
 
-/* CODING */
+/* =========================
+   CODING
+========================= */
 
 
 {
 title: "My JavaScript code has an error",
 category: "coding",
 description: "Find common JavaScript errors.",
-keywords: ["javascript","js","coding","code","error"],
+keywords: [
+"javascript",
+"js",
+"script",
+"coding",
+"code",
+"programming",
+"error",
+"bug",
+"broken"
+],
 steps: [
 "Read the exact error message.",
 "Open your browser Developer Tools.",
@@ -589,7 +721,16 @@ steps: [
 title: "My Python code isn't working",
 category: "coding",
 description: "Use the error message to find the problem.",
-keywords: ["python","coding","programming","error"],
+keywords: [
+"python",
+"py",
+"coding",
+"code",
+"programming",
+"error",
+"broken",
+"bug"
+],
 steps: [
 "Read the error message carefully.",
 "Find the line number in the traceback.",
@@ -604,7 +745,16 @@ steps: [
 title: "My website is blank",
 category: "coding",
 description: "Find common causes of blank websites.",
-keywords: ["website","html","blank","coding"],
+keywords: [
+"website",
+"web",
+"html",
+"blank",
+"coding",
+"code",
+"page",
+"empty"
+],
 steps: [
 "Refresh the page.",
 "Open Developer Tools.",
@@ -619,7 +769,16 @@ steps: [
 title: "My CSS isn't working",
 category: "coding",
 description: "Check why your CSS changes aren't appearing.",
-keywords: ["css","html","style","coding"],
+keywords: [
+"css",
+"html",
+"style",
+"styling",
+"coding",
+"code",
+"website",
+"design"
+],
 steps: [
 "Check that your CSS file is connected.",
 "Check the filename and path.",
@@ -634,7 +793,16 @@ steps: [
 title: "My GitHub Pages website isn't updating",
 category: "coding",
 description: "Check why your latest website changes aren't visible.",
-keywords: ["github","pages","website","hosting","coding"],
+keywords: [
+"github",
+"pages",
+"website",
+"hosting",
+"coding",
+"code",
+"update",
+"updating"
+],
 steps: [
 "Make sure you committed your changes.",
 "Wait a few minutes for GitHub Pages to rebuild.",
@@ -648,6 +816,364 @@ steps: [
 ];
 
 
+/* =========================
+   SEARCH
+========================= */
+
+
+function searchProblems() {
+
+
+const input = document
+.getElementById("searchInput")
+.value
+.toLowerCase()
+.trim();
+
+
+if (!input) {
+
+displayProblems([], "Search results");
+
+return;
+
+}
+
+
+const words = input
+.replace(/[^\w\s-]/g, "")
+.split(/\s+/)
+.filter(word => word.length > 1);
+
+
+/*
+These groups allow FixIt to understand
+different ways of describing the same problem.
+*/
+
+
+const synonyms = {
+
+
+slow: [
+"slow",
+"sluggish",
+"laggy",
+"lag",
+"speed",
+"performance"
+],
+
+
+laptop: [
+"laptop",
+"computer",
+"pc"
+],
+
+
+computer: [
+"computer",
+"pc",
+"laptop"
+],
+
+
+wifi: [
+"wifi",
+"wi-fi",
+"wireless",
+"internet",
+"network",
+"connection"
+],
+
+
+internet: [
+"internet",
+"wifi",
+"wi-fi",
+"connection",
+"network"
+],
+
+
+disconnect: [
+"disconnect",
+"disconnecting",
+"dropping",
+"drops",
+"drop",
+"unstable"
+],
+
+
+charge: [
+"charge",
+"charging",
+"charger",
+"power"
+],
+
+
+battery: [
+"battery",
+"power",
+"charge",
+"charging",
+"drain",
+"draining"
+],
+
+
+game: [
+"game",
+"gaming",
+"gameplay"
+],
+
+
+lag: [
+"lag",
+"lagging",
+"laggy",
+"stutter",
+"stuttering",
+"fps"
+],
+
+
+javascript: [
+"javascript",
+"js",
+"script"
+],
+
+
+python: [
+"python",
+"py"
+],
+
+
+css: [
+"css",
+"style",
+"styling"
+],
+
+
+website: [
+"website",
+"web",
+"site",
+"page"
+],
+
+
+error: [
+"error",
+"broken",
+"problem",
+"issue",
+"bug",
+"doesnt",
+"doesn't"
+],
+
+
+phone: [
+"phone",
+"mobile",
+"iphone",
+"android"
+],
+
+
+hot: [
+"hot",
+"heating",
+"overheat",
+"overheating"
+]
+
+};
+
+
+/*
+Find related words.
+*/
+
+
+function getRelatedWords(word) {
+
+
+for (const group in synonyms) {
+
+
+if (synonyms[group].includes(word)) {
+
+return synonyms[group];
+
+}
+
+}
+
+
+return [word];
+
+}
+
+
+/*
+Score every problem.
+The higher the score,
+the better the match.
+*/
+
+
+const results = problems.map(function(problem) {
+
+
+const searchableText = (
+
+problem.title +
+" " +
+problem.description +
+" " +
+problem.keywords.join(" ")
+
+).toLowerCase();
+
+
+let score = 0;
+
+
+/*
+Check every word the user typed.
+*/
+
+
+words.forEach(function(word) {
+
+
+const relatedWords =
+getRelatedWords(word);
+
+
+relatedWords.forEach(function(related) {
+
+
+if (searchableText.includes(related)) {
+
+score++;
+
+}
+
+});
+
+
+/*
+Exact word matches get an extra point.
+*/
+
+
+if (searchableText.includes(word)) {
+
+score += 2;
+
+}
+
+});
+
+
+/*
+If the complete search phrase
+appears in the title,
+give it a big bonus.
+*/
+
+
+if (
+problem.title
+.toLowerCase()
+.includes(input)
+) {
+
+score += 10;
+
+}
+
+
+/*
+Check individual title words.
+*/
+
+
+const titleWords =
+problem.title
+.toLowerCase()
+.split(/\s+/);
+
+
+words.forEach(function(word) {
+
+
+titleWords.forEach(function(titleWord) {
+
+
+if (
+titleWord.includes(word) ||
+word.includes(titleWord)
+) {
+
+score += 3;
+
+}
+
+});
+
+
+});
+
+
+return {
+
+problem: problem,
+
+score: score
+
+};
+
+
+});
+
+
+/*
+Only show actual matches.
+Sort from best to worst.
+*/
+
+
+const matches = results
+
+.filter(result => result.score > 0)
+
+.sort((a, b) => b.score - a.score)
+
+.map(result => result.problem);
+
+
+displayProblems(matches, "Search results");
+
+}
+
+
+/* =========================
+   CATEGORY
+========================= */
+
+
 function showCategory(category) {
 
 
@@ -658,41 +1184,17 @@ return problem.category === category;
 });
 
 
-displayProblems(matches, "Problems in this category");
+displayProblems(
+matches,
+"Problems in this category"
+);
 
 }
 
 
-function searchProblems() {
-
-
-const input =
-document.getElementById("searchInput")
-.value
-.toLowerCase()
-.trim();
-
-
-const matches = problems.filter(function(problem) {
-
-
-const text =
-problem.title +
-" " +
-problem.description +
-" " +
-problem.keywords.join(" ");
-
-
-return text.toLowerCase().includes(input);
-
-
-});
-
-
-displayProblems(matches, "Search results");
-
-}
+/* =========================
+   DISPLAY RESULTS
+========================= */
 
 
 function displayProblems(matches, title) {
@@ -708,16 +1210,40 @@ title +
 "</h2>";
 
 
-if(matches.length === 0) {
+if (matches.length === 0) {
 
 
-container.innerHTML +=
-"<p>No fixes found yet.</p>";
+container.innerHTML += `
+
+<div class="no-results">
+
+<h3>😕 We couldn't find a fix yet.</h3>
+
+<br>
+
+<p>
+Try words like:
+<strong>slow</strong>,
+<strong>wifi</strong>,
+<strong>battery</strong>,
+<strong>game</strong>,
+<strong>coding</strong>,
+or <strong>website</strong>.
+</p>
+
+</div>
+
+`;
 
 
 return;
 
 }
+
+
+/*
+Show the matching problems.
+*/
 
 
 matches.forEach(function(problem) {
@@ -762,6 +1288,11 @@ behavior: "smooth"
 
 
 }
+
+
+/* =========================
+   SOLUTION
+========================= */
 
 
 function showSolution(problem) {
@@ -830,6 +1361,11 @@ steps.appendChild(div);
 window.scrollTo(0,0);
 
 }
+
+
+/* =========================
+   BACK BUTTON
+========================= */
 
 
 function goBack() {
