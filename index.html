@@ -776,7 +776,37 @@ footer strong {
         fadeIn 0.35s ease;
 }
 
-</style>
+.menu-button {
+    display: none;
+}
+
+@media (max-width: 800px) {
+
+    .menu-button {
+        display: block;
+        border: none;
+        background: #eef2ff;
+        color: #4f46e5;
+        font-size: 24px;
+        width: 44px;
+        height: 44px;
+        border-radius: 10px;
+        cursor: pointer;
+    }
+
+    nav#mainNav {
+        flex-direction: column;
+    }
+
+    nav#mainNav a {
+        display: none;
+    }
+
+    nav#mainNav.open a {
+        display: block;
+    }
+
+}</style>
 
 </head>
 
@@ -2537,7 +2567,11 @@ displayProblems(
     "Popular fixes"
 );
 
-</script>
+function toggleMenu() {
+    const nav = document.getElementById("mainNav");
+
+    nav.classList.toggle("open");
+}</script>
 
 </body>
 
