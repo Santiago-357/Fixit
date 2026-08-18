@@ -7,7 +7,7 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>FixIt — Find a Fix</title>
+<title>FixIt — Simple Tech Solutions</title>
 
 <meta
 name="description"
@@ -15,6 +15,10 @@ content="FixIt helps you solve everyday technology problems with simple step-by-
 >
 
 <style>
+
+/* =========================
+   RESET
+========================= */
 
 * {
     box-sizing: border-box;
@@ -49,29 +53,62 @@ header {
     top: 0;
     z-index: 100;
 
-    background: rgba(255,255,255,0.95);
-    backdrop-filter: blur(10px);
+    background: rgba(255,255,255,0.96);
+
+    backdrop-filter: blur(12px);
 
     border-bottom: 1px solid #e5e7eb;
 
-    padding: 16px 6%;
+    padding: 15px 6%;
 
     display: flex;
+
     justify-content: space-between;
+
     align-items: center;
+
+    gap: 20px;
 }
 
 .logo {
     font-size: 25px;
+
     font-weight: 800;
+
+    white-space: nowrap;
 }
 
 .logo span {
     color: #4f46e5;
 }
 
+nav {
+    display: flex;
+
+    align-items: center;
+
+    gap: 24px;
+}
+
+nav a {
+    text-decoration: none;
+
+    color: #4b5563;
+
+    font-size: 14px;
+
+    font-weight: 600;
+
+    transition: 0.2s;
+}
+
+nav a:hover {
+    color: #4f46e5;
+}
+
 .badge {
     background: #eef2ff;
+
     color: #4f46e5;
 
     padding: 7px 14px;
@@ -79,7 +116,10 @@ header {
     border-radius: 50px;
 
     font-size: 13px;
+
     font-weight: 700;
+
+    white-space: nowrap;
 }
 
 
@@ -104,6 +144,7 @@ header {
     display: inline-block;
 
     background: white;
+
     border: 1px solid #e5e7eb;
 
     color: #4f46e5;
@@ -113,6 +154,7 @@ header {
     border-radius: 50px;
 
     font-size: 13px;
+
     font-weight: 700;
 
     margin-bottom: 20px;
@@ -172,6 +214,7 @@ header {
     flex: 1;
 
     border: none;
+
     outline: none;
 
     padding: 17px;
@@ -183,6 +226,7 @@ header {
 
 .search button {
     background: #4f46e5;
+
     color: white;
 
     border: none;
@@ -200,6 +244,7 @@ header {
 
 .search button:hover {
     background: #4338ca;
+
     transform: translateY(-1px);
 }
 
@@ -228,6 +273,7 @@ header {
 
 .section-title p {
     color: #6b7280;
+
     margin-top: 5px;
 }
 
@@ -272,6 +318,7 @@ header {
 
 .icon {
     font-size: 32px;
+
     margin-bottom: 9px;
 }
 
@@ -373,11 +420,13 @@ header {
 
 .how-number {
     width: 38px;
+
     height: 38px;
 
     display: flex;
 
     align-items: center;
+
     justify-content: center;
 
     background: #eef2ff;
@@ -397,6 +446,90 @@ header {
 
 .how-card p {
     color: #6b7280;
+}
+
+
+/* =========================
+   ABOUT
+========================= */
+
+.about {
+    max-width: 850px;
+
+    margin: 0 auto 70px;
+
+    padding: 0 20px;
+
+    text-align: center;
+}
+
+.about-box {
+    background: white;
+
+    border: 1px solid #e5e7eb;
+
+    border-radius: 18px;
+
+    padding: 35px;
+}
+
+.about-box p {
+    color: #6b7280;
+
+    margin-top: 12px;
+}
+
+
+/* =========================
+   CONTACT
+========================= */
+
+.contact {
+    max-width: 850px;
+
+    margin: 0 auto 70px;
+
+    padding: 0 20px;
+
+    text-align: center;
+}
+
+.contact-box {
+    background: white;
+
+    border: 1px solid #e5e7eb;
+
+    border-radius: 18px;
+
+    padding: 35px;
+}
+
+.contact-box p {
+    color: #6b7280;
+
+    margin: 10px 0 20px;
+}
+
+.contact-button {
+    display: inline-block;
+
+    background: #4f46e5;
+
+    color: white;
+
+    text-decoration: none;
+
+    padding: 12px 22px;
+
+    border-radius: 10px;
+
+    font-weight: 700;
+
+    transition: 0.2s;
+}
+
+.contact-button:hover {
+    background: #4338ca;
 }
 
 
@@ -539,12 +672,46 @@ footer strong {
     color: white;
 }
 
+.footer-links {
+    margin-top: 15px;
+}
+
+.footer-links a {
+    color: #d1d5db;
+
+    text-decoration: none;
+
+    margin: 0 10px;
+
+    font-size: 14px;
+}
+
+.footer-links a:hover {
+    color: white;
+}
+
 
 /* =========================
    MOBILE
 ========================= */
 
 @media(max-width:800px) {
+
+    header {
+        flex-wrap: wrap;
+
+        justify-content: center;
+    }
+
+    nav {
+        order: 3;
+
+        width: 100%;
+
+        justify-content: center;
+
+        gap: 15px;
+    }
 
     .categories {
         grid-template-columns:
@@ -554,13 +721,10 @@ footer strong {
     .how-grid {
         grid-template-columns: 1fr;
     }
+
 }
 
 @media(max-width:600px) {
-
-    header {
-        padding: 14px 20px;
-    }
 
     .hero {
         padding: 65px 18px 50px;
@@ -574,9 +738,10 @@ footer strong {
         height: 52px;
     }
 
-    .categories {
-        grid-template-columns: 1fr 1fr;
+    nav a {
+        font-size: 13px;
     }
+
 }
 
 
@@ -588,18 +753,25 @@ footer strong {
 
     from {
         opacity: 0;
-        transform: translateY(8px);
+
+        transform:
+            translateY(8px);
     }
 
     to {
         opacity: 1;
-        transform: translateY(0);
+
+        transform:
+            translateY(0);
     }
+
 }
 
 .problem,
 .category,
-.how-card {
+.how-card,
+.about-box,
+.contact-box {
     animation:
         fadeIn 0.35s ease;
 }
@@ -612,13 +784,35 @@ footer strong {
 <body>
 
 
-<!-- HEADER -->
+<!-- =========================
+     HEADER
+========================= -->
 
 <header>
 
     <div class="logo">
         🔧 <span>FixIt</span>
     </div>
+
+    <nav>
+
+        <a href="#home">
+            Home
+        </a>
+
+        <a href="#how">
+            How it works
+        </a>
+
+        <a href="#about">
+            About
+        </a>
+
+        <a href="#contact">
+            Contact
+        </a>
+
+    </nav>
 
     <div class="badge">
         100% Free
@@ -627,9 +821,14 @@ footer strong {
 </header>
 
 
-<!-- HERO -->
+<!-- =========================
+     HERO
+========================= -->
 
-<section class="hero">
+<section
+    class="hero"
+    id="home"
+>
 
     <div class="hero-label">
         🛠️ Simple tech help
@@ -657,7 +856,9 @@ footer strong {
             "
         >
 
-        <button onclick="searchProblems()">
+        <button
+            onclick="searchProblems()"
+        >
             Find a Fix
         </button>
 
@@ -666,9 +867,14 @@ footer strong {
 </section>
 
 
-<!-- MAIN -->
+<!-- =========================
+     MAIN
+========================= -->
 
-<div class="container">
+<div
+    class="container"
+    id="problemsSection"
+>
 
     <div class="section-title">
 
@@ -689,11 +895,19 @@ footer strong {
             class="category"
             onclick="showCategory('computer')"
         >
-            <div class="icon">💻</div>
 
-            <strong>Computer</strong>
+            <div class="icon">
+                💻
+            </div>
 
-            <small>PC & laptop</small>
+            <strong>
+                Computer
+            </strong>
+
+            <small>
+                PC & laptop
+            </small>
+
         </div>
 
 
@@ -701,11 +915,19 @@ footer strong {
             class="category"
             onclick="showCategory('internet')"
         >
-            <div class="icon">🌐</div>
 
-            <strong>Internet</strong>
+            <div class="icon">
+                🌐
+            </div>
 
-            <small>Wi-Fi & web</small>
+            <strong>
+                Internet
+            </strong>
+
+            <small>
+                Wi-Fi & web
+            </small>
+
         </div>
 
 
@@ -713,11 +935,19 @@ footer strong {
             class="category"
             onclick="showCategory('phone')"
         >
-            <div class="icon">📱</div>
 
-            <strong>Phone</strong>
+            <div class="icon">
+                📱
+            </div>
 
-            <small>Mobile problems</small>
+            <strong>
+                Phone
+            </strong>
+
+            <small>
+                Mobile problems
+            </small>
+
         </div>
 
 
@@ -725,11 +955,19 @@ footer strong {
             class="category"
             onclick="showCategory('gaming')"
         >
-            <div class="icon">🎮</div>
 
-            <strong>Gaming</strong>
+            <div class="icon">
+                🎮
+            </div>
 
-            <small>Games & FPS</small>
+            <strong>
+                Gaming
+            </strong>
+
+            <small>
+                Games & FPS
+            </small>
+
         </div>
 
 
@@ -737,24 +975,40 @@ footer strong {
             class="category"
             onclick="showCategory('coding')"
         >
-            <div class="icon">👨‍💻</div>
 
-            <strong>Coding</strong>
+            <div class="icon">
+                👨‍💻
+            </div>
 
-            <small>Code & websites</small>
+            <strong>
+                Coding
+            </strong>
+
+            <small>
+                Code & websites
+            </small>
+
         </div>
 
     </div>
 
 
-    <div id="problems" class="problems"></div>
+    <div
+        id="problems"
+        class="problems"
+    ></div>
 
 </div>
 
 
-<!-- HOW IT WORKS -->
+<!-- =========================
+     HOW IT WORKS
+========================= -->
 
-<section class="how">
+<section
+    class="how"
+    id="how"
+>
 
     <div class="section-title">
 
@@ -829,9 +1083,96 @@ footer strong {
 </section>
 
 
-<!-- SOLUTION -->
+<!-- =========================
+     ABOUT
+========================= -->
 
-<section id="solution" class="solution">
+<section
+    class="about"
+    id="about"
+>
+
+    <div class="section-title">
+
+        <h2>
+            About FixIt
+        </h2>
+
+    </div>
+
+
+    <div class="about-box">
+
+        <h3>
+            Technology shouldn't be frustrating.
+        </h3>
+
+        <p>
+            FixIt was created to make everyday
+            technology problems easier to solve.
+        </p>
+
+        <p>
+            Instead of searching through complicated
+            forums and long technical guides,
+            FixIt gives you simple steps you can
+            actually follow.
+        </p>
+
+    </div>
+
+</section>
+
+
+<!-- =========================
+     CONTACT
+========================= -->
+
+<section
+    class="contact"
+    id="contact"
+>
+
+    <div class="section-title">
+
+        <h2>
+            Help us improve FixIt
+        </h2>
+
+    </div>
+
+
+    <div class="contact-box">
+
+        <h3>
+            Found a problem we don't cover?
+        </h3>
+
+        <p>
+            Tell us what you were looking for.
+            Your feedback can help us add better fixes.
+        </p>
+
+        <a
+            class="contact-button"
+            href="mailto:santiagocheese722@gmail.com"
+        >
+            Send Feedback
+        </a>
+
+    </div>
+
+</section>
+
+
+<!-- =========================
+     SOLUTION
+========================= -->
+
+<section
+    id="solution"
+    class="solution"
+>
 
     <div
         class="back"
@@ -841,7 +1182,9 @@ footer strong {
     </div>
 
 
-    <h2 id="solutionTitle"></h2>
+    <h2
+        id="solutionTitle"
+    ></h2>
 
 
     <p
@@ -859,11 +1202,15 @@ footer strong {
             Was this solution helpful?
         </p>
 
-        <button onclick="feedback('yes')">
+        <button
+            onclick="feedback('yes')"
+        >
             👍 Yes
         </button>
 
-        <button onclick="feedback('no')">
+        <button
+            onclick="feedback('no')"
+        >
             👎 Not really
         </button>
 
@@ -891,19 +1238,43 @@ footer strong {
 </section>
 
 
-<!-- FOOTER -->
+<!-- =========================
+     FOOTER
+========================= -->
 
 <footer>
 
-    <strong>FixIt</strong>
+    <strong>
+        🔧 FixIt
+    </strong>
 
     <br><br>
 
     Simple solutions for everyday technology problems.
 
-    <br><br>
+    <div class="footer-links">
 
-    Built to make troubleshooting easier.
+        <a href="#home">
+            Home
+        </a>
+
+        <a href="#how">
+            How it works
+        </a>
+
+        <a href="#about">
+            About
+        </a>
+
+        <a href="#contact">
+            Contact
+        </a>
+
+    </div>
+
+    <br>
+
+    © 2026 FixIt
 
 </footer>
 
@@ -911,24 +1282,22 @@ footer strong {
 
 <script>
 
-
 /* =========================================================
    PROBLEM DATABASE
 ========================================================= */
 
 const problems = [
 
-/* =========================
-   COMPUTER
-========================= */
+/* COMPUTER */
 
 {
     title: "My computer is slow",
     category: "computer",
     description: "Diagnose why your computer might be slow.",
     keywords: [
-        "computer","pc","laptop","slow","sluggish",
-        "laggy","lag","speed","performance"
+        "computer","pc","laptop","slow",
+        "sluggish","laggy","lag","speed",
+        "performance"
     ],
     steps: [
         "Restart your computer.",
@@ -944,8 +1313,9 @@ const problems = [
     category: "computer",
     description: "Check the basic power connections first.",
     keywords: [
-        "computer","pc","laptop","won't","wont",
-        "turn","on","power","start","boot","dead"
+        "computer","pc","laptop","won't",
+        "wont","turn","on","power",
+        "start","boot","dead"
     ],
     steps: [
         "Make sure the power cable is connected.",
@@ -961,8 +1331,8 @@ const problems = [
     category: "computer",
     description: "Check the charger, cable, and power connection.",
     keywords: [
-        "laptop","charge","charging","charger",
-        "battery","power"
+        "laptop","charge","charging",
+        "charger","battery","power"
     ],
     steps: [
         "Reconnect the charger firmly.",
@@ -978,8 +1348,9 @@ const problems = [
     category: "computer",
     description: "Try these steps if your computer regularly freezes.",
     keywords: [
-        "computer","pc","laptop","freeze","freezing",
-        "frozen","stuck","hang","hanging"
+        "computer","pc","laptop","freeze",
+        "freezing","frozen","stuck",
+        "hang","hanging"
     ],
     steps: [
         "Restart the computer.",
@@ -995,8 +1366,9 @@ const problems = [
     category: "computer",
     description: "Check the display and power connections.",
     keywords: [
-        "screen","black","display","monitor",
-        "computer","laptop","nothing","blank"
+        "screen","black","display",
+        "monitor","computer","laptop",
+        "nothing","blank"
     ],
     steps: [
         "Check that the computer is powered on.",
@@ -1012,8 +1384,9 @@ const problems = [
     category: "computer",
     description: "Check the keyboard connection and settings.",
     keywords: [
-        "keyboard","keys","typing","computer",
-        "pc","laptop","not","working"
+        "keyboard","keys","typing",
+        "computer","pc","laptop",
+        "not","working"
     ],
     steps: [
         "Reconnect the keyboard.",
@@ -1029,8 +1402,8 @@ const problems = [
     category: "computer",
     description: "Check the mouse connection and power.",
     keywords: [
-        "mouse","cursor","computer","pc",
-        "click","not","working"
+        "mouse","cursor","computer",
+        "pc","click","not","working"
     ],
     steps: [
         "Reconnect the mouse.",
@@ -1046,8 +1419,9 @@ const problems = [
     category: "computer",
     description: "Check common causes of missing computer audio.",
     keywords: [
-        "sound","audio","speaker","speakers",
-        "headphones","volume","computer","mute"
+        "sound","audio","speaker",
+        "speakers","headphones",
+        "volume","computer","mute"
     ],
     steps: [
         "Make sure your volume is not muted.",
@@ -1063,8 +1437,9 @@ const problems = [
     category: "computer",
     description: "Free storage without deleting important system files.",
     keywords: [
-        "storage","space","disk","full",
-        "drive","memory","computer"
+        "storage","space","disk",
+        "full","drive","memory",
+        "computer"
     ],
     steps: [
         "Check which files use the most storage.",
@@ -1080,8 +1455,9 @@ const problems = [
     category: "computer",
     description: "Try these basic Windows Update troubleshooting steps.",
     keywords: [
-        "windows","update","updates","updating",
-        "microsoft","computer","install"
+        "windows","update","updates",
+        "updating","microsoft",
+        "computer","install"
     ],
     steps: [
         "Restart the computer.",
@@ -1097,8 +1473,9 @@ const problems = [
     category: "computer",
     description: "Check airflow and demanding programs.",
     keywords: [
-        "computer","laptop","hot","heat",
-        "overheat","overheating","temperature","fan"
+        "computer","laptop","hot",
+        "heat","overheat","overheating",
+        "temperature","fan"
     ],
     steps: [
         "Move the computer to a hard, flat surface.",
@@ -1114,8 +1491,9 @@ const problems = [
     category: "computer",
     description: "Try these steps when a desktop application won't start.",
     keywords: [
-        "app","apps","application","program",
-        "programs","won't","wont","open","launch"
+        "app","apps","application",
+        "program","programs","won't",
+        "wont","open","launch"
     ],
     steps: [
         "Restart the computer.",
@@ -1127,29 +1505,13 @@ const problems = [
 },
 
 {
-    title: "My computer keeps restarting",
-    category: "computer",
-    description: "Check updates, overheating, and recently installed software.",
-    keywords: [
-        "computer","restart","restarting","reboot",
-        "reboots","shutdown","crash"
-    ],
-    steps: [
-        "Install pending system updates.",
-        "Check whether the computer is overheating.",
-        "Disconnect unnecessary external devices.",
-        "Think about whether the problem started after installing software.",
-        "Save important files and seek professional help if unexpected shutdowns continue."
-    ]
-},
-
-{
     title: "My Bluetooth isn't working",
     category: "computer",
     description: "Check Bluetooth settings and device pairing.",
     keywords: [
-        "bluetooth","computer","pc","laptop",
-        "wireless","connect","pair","pairing"
+        "bluetooth","computer","pc",
+        "laptop","wireless","connect",
+        "pair","pairing"
     ],
     steps: [
         "Make sure Bluetooth is enabled.",
@@ -1161,17 +1523,16 @@ const problems = [
 },
 
 
-/* =========================
-   INTERNET
-========================= */
+/* INTERNET */
 
 {
     title: "My Wi-Fi is slow",
     category: "internet",
     description: "Try these steps to improve your connection.",
     keywords: [
-        "wifi","wi-fi","wireless","internet",
-        "slow","speed","connection","network"
+        "wifi","wi-fi","wireless",
+        "internet","slow","speed",
+        "connection","network"
     ],
     steps: [
         "Restart your router.",
@@ -1187,8 +1548,9 @@ const problems = [
     category: "internet",
     description: "Check common causes of repeated Wi-Fi disconnections.",
     keywords: [
-        "wifi","wi-fi","internet","disconnect",
-        "disconnecting","dropping","drops",
+        "wifi","wi-fi","internet",
+        "disconnect","disconnecting",
+        "dropping","drops",
         "connection","network","unstable"
     ],
     steps: [
@@ -1205,8 +1567,9 @@ const problems = [
     category: "internet",
     description: "Check your connection and router.",
     keywords: [
-        "internet","wifi","wi-fi","network",
-        "offline","no","connection","not","working"
+        "internet","wifi","wi-fi",
+        "network","offline","no",
+        "connection","not","working"
     ],
     steps: [
         "Check whether other devices can connect.",
@@ -1222,8 +1585,9 @@ const problems = [
     category: "internet",
     description: "Your device may be connected to the router but not the internet.",
     keywords: [
-        "wifi","wi-fi","connected","no",
-        "internet","internet access","network"
+        "wifi","wi-fi","connected",
+        "no","internet",
+        "internet access","network"
     ],
     steps: [
         "Restart your router.",
@@ -1240,7 +1604,8 @@ const problems = [
     description: "Try these steps if a website won't open.",
     keywords: [
         "website","web","site","page",
-        "browser","internet","chrome","load","loading"
+        "browser","internet","chrome",
+        "load","loading"
     ],
     steps: [
         "Refresh the page.",
@@ -1285,52 +1650,17 @@ const problems = [
     ]
 },
 
-{
-    title: "My browser is extremely slow",
-    category: "internet",
-    description: "Reduce browser load and check extensions.",
-    keywords: [
-        "browser","chrome","firefox","edge",
-        "slow","internet","web","tabs"
-    ],
-    steps: [
-        "Close unnecessary tabs.",
-        "Restart the browser.",
-        "Disable extensions you don't need.",
-        "Clear temporary browser data.",
-        "Try another browser to compare performance."
-    ]
-},
 
-{
-    title: "DNS error",
-    category: "internet",
-    description: "Try basic browser and network troubleshooting.",
-    keywords: [
-        "dns","dns error","website",
-        "internet","server","domain"
-    ],
-    steps: [
-        "Refresh the page.",
-        "Restart your router.",
-        "Restart your device.",
-        "Try another website.",
-        "If the problem affects many websites, check your network settings."
-    ]
-},
-
-
-/* =========================
-   PHONE
-========================= */
+/* PHONE */
 
 {
     title: "My phone won't turn on",
     category: "phone",
     description: "Check power and charging first.",
     keywords: [
-        "phone","mobile","iphone","android",
-        "won't","wont","turn","on","dead","power"
+        "phone","mobile","iphone",
+        "android","won't","wont",
+        "turn","on","dead","power"
     ],
     steps: [
         "Connect the phone to a charger.",
@@ -1363,8 +1693,9 @@ const problems = [
     category: "phone",
     description: "Find what is using your battery.",
     keywords: [
-        "phone","battery","drain","draining",
-        "dies","dying","power","charge"
+        "phone","battery","drain",
+        "draining","dies","dying",
+        "power","charge"
     ],
     steps: [
         "Check battery usage in your phone settings.",
@@ -1380,8 +1711,9 @@ const problems = [
     category: "phone",
     description: "Try these basic steps if your phone becomes unusually hot.",
     keywords: [
-        "phone","hot","heating","overheat",
-        "overheating","temperature"
+        "phone","hot","heating",
+        "overheat","overheating",
+        "temperature"
     ],
     steps: [
         "Stop demanding apps such as games.",
@@ -1397,9 +1729,10 @@ const problems = [
     category: "phone",
     description: "Reset the Bluetooth connection and pair again.",
     keywords: [
-        "bluetooth","headphones","earbuds",
-        "connect","connecting","pair","pairing",
-        "phone","wireless"
+        "bluetooth","headphones",
+        "earbuds","connect",
+        "connecting","pair",
+        "pairing","phone","wireless"
     ],
     steps: [
         "Make sure Bluetooth is enabled.",
@@ -1415,8 +1748,8 @@ const problems = [
     category: "phone",
     description: "Restart the phone and check storage.",
     keywords: [
-        "phone","freezing","freeze","frozen",
-        "stuck","slow","lag"
+        "phone","freezing","freeze",
+        "frozen","stuck","slow","lag"
     ],
     steps: [
         "Restart the phone.",
@@ -1433,7 +1766,8 @@ const problems = [
     description: "Free space safely.",
     keywords: [
         "phone","storage","full",
-        "space","memory","iphone","android"
+        "space","memory",
+        "iphone","android"
     ],
     steps: [
         "Check which categories use the most storage.",
@@ -1444,52 +1778,18 @@ const problems = [
     ]
 },
 
-{
-    title: "My phone camera isn't working",
-    category: "phone",
-    description: "Check the camera app and phone software.",
-    keywords: [
-        "phone","camera","photo",
-        "photos","camera not working"
-    ],
-    steps: [
-        "Close the camera app.",
-        "Restart the phone.",
-        "Check available storage.",
-        "Install system updates.",
-        "Try another camera app to compare."
-    ]
-},
 
-{
-    title: "My phone screen isn't responding",
-    category: "phone",
-    description: "Restart the device and check for physical issues.",
-    keywords: [
-        "phone","screen","touch","touchscreen",
-        "not","responding","display"
-    ],
-    steps: [
-        "Clean and dry the screen.",
-        "Remove gloves if you are wearing them.",
-        "Restart the phone.",
-        "Remove a screen protector temporarily if appropriate.",
-        "If the screen was physically damaged, seek professional repair."
-    ]
-},
-
-
-/* =========================
-   GAMING
-========================= */
+/* GAMING */
 
 {
     title: "My game is lagging",
     category: "gaming",
     description: "Improve FPS and reduce common gaming lag.",
     keywords: [
-        "game","gaming","lag","lagging",
-        "laggy","stutter","stuttering","fps","slow"
+        "game","gaming","lag",
+        "lagging","laggy",
+        "stutter","stuttering",
+        "fps","slow"
     ],
     steps: [
         "Restart the game.",
@@ -1505,8 +1805,9 @@ const problems = [
     category: "gaming",
     description: "Try reducing graphics load and checking your system.",
     keywords: [
-        "game","gaming","fps","low",
-        "frame","frames","performance","graphics"
+        "game","gaming","fps",
+        "low","frame","frames",
+        "performance","graphics"
     ],
     steps: [
         "Lower graphics settings.",
@@ -1522,8 +1823,8 @@ const problems = [
     category: "gaming",
     description: "Try these common fixes for game crashes.",
     keywords: [
-        "game","gaming","crash","crashing",
-        "broken","steam"
+        "game","gaming","crash",
+        "crashing","broken","steam"
     ],
     steps: [
         "Restart the game.",
@@ -1539,8 +1840,9 @@ const problems = [
     category: "gaming",
     description: "Check updates, files, and system requirements.",
     keywords: [
-        "game","launch","start","open",
-        "won't","wont","steam","gaming"
+        "game","launch","start",
+        "open","won't","wont",
+        "steam","gaming"
     ],
     steps: [
         "Restart your computer.",
@@ -1556,8 +1858,9 @@ const problems = [
     category: "gaming",
     description: "Reduce network latency where possible.",
     keywords: [
-        "gaming","game","ping","high",
-        "latency","internet","lag","online"
+        "gaming","game","ping",
+        "high","latency",
+        "internet","lag","online"
     ],
     steps: [
         "Use Ethernet if available.",
@@ -1573,9 +1876,10 @@ const problems = [
     category: "gaming",
     description: "Check the connection and controller pairing.",
     keywords: [
-        "controller","gamepad","gaming",
-        "game","xbox","playstation","ps5",
-        "ps4","connect"
+        "controller","gamepad",
+        "gaming","game",
+        "xbox","playstation",
+        "ps5","ps4","connect"
     ],
     steps: [
         "Reconnect the controller.",
@@ -1586,44 +1890,8 @@ const problems = [
     ]
 },
 
-{
-    title: "My game has no sound",
-    category: "gaming",
-    description: "Check game and system audio settings.",
-    keywords: [
-        "game","gaming","sound","audio",
-        "volume","headphones","speakers"
-    ],
-    steps: [
-        "Check the system volume.",
-        "Check the game's audio settings.",
-        "Check the selected audio output.",
-        "Reconnect headphones.",
-        "Restart the game."
-    ]
-},
 
-{
-    title: "Steam download is slow",
-    category: "gaming",
-    description: "Check Steam downloads and your network.",
-    keywords: [
-        "steam","download","slow",
-        "gaming","game","speed"
-    ],
-    steps: [
-        "Pause other downloads.",
-        "Restart Steam.",
-        "Restart your router.",
-        "Check Steam's download region settings.",
-        "Test your internet speed."
-    ]
-},
-
-
-/* =========================
-   CODING
-========================= */
+/* CODING */
 
 {
     title: "My JavaScript code has an error",
@@ -1631,8 +1899,9 @@ const problems = [
     description: "Find common JavaScript errors.",
     keywords: [
         "javascript","js","script",
-        "coding","code","programming",
-        "error","bug","broken"
+        "coding","code",
+        "programming","error",
+        "bug","broken"
     ],
     steps: [
         "Read the exact error message.",
@@ -1649,8 +1918,8 @@ const problems = [
     description: "Check the button, function, and browser console.",
     keywords: [
         "javascript","js","button",
-        "click","onclick","not working",
-        "coding","code"
+        "click","onclick",
+        "not working","coding","code"
     ],
     steps: [
         "Check that the button exists in your HTML.",
@@ -1666,8 +1935,9 @@ const problems = [
     category: "coding",
     description: "Use the error message to find the problem.",
     keywords: [
-        "python","py","coding","code",
-        "programming","error","broken","bug"
+        "python","py","coding",
+        "code","programming",
+        "error","broken","bug"
     ],
     steps: [
         "Read the error message carefully.",
@@ -1683,8 +1953,9 @@ const problems = [
     category: "coding",
     description: "Find common causes of blank websites.",
     keywords: [
-        "website","web","html","blank",
-        "coding","code","page","empty"
+        "website","web","html",
+        "blank","coding","code",
+        "page","empty"
     ],
     steps: [
         "Refresh the page.",
@@ -1700,8 +1971,9 @@ const problems = [
     category: "coding",
     description: "Check why your CSS changes aren't appearing.",
     keywords: [
-        "css","html","style","styling",
-        "coding","code","website","design"
+        "css","html","style",
+        "styling","coding",
+        "code","website","design"
     ],
     steps: [
         "Check that your CSS file is connected.",
@@ -1717,8 +1989,9 @@ const problems = [
     category: "coding",
     description: "Check HTML structure and browser errors.",
     keywords: [
-        "html","website","web","coding",
-        "code","page","not showing","broken"
+        "html","website","web",
+        "coding","code","page",
+        "not showing","broken"
     ],
     steps: [
         "Check that your HTML tags are properly closed.",
@@ -1735,8 +2008,8 @@ const problems = [
     description: "Check why your latest website changes aren't visible.",
     keywords: [
         "github","pages","website",
-        "hosting","coding","code",
-        "update","updating"
+        "hosting","coding",
+        "code","update","updating"
     ],
     steps: [
         "Make sure you committed your changes.",
@@ -1745,67 +2018,13 @@ const problems = [
         "Try a private browser window.",
         "Check Settings → Pages and make sure the correct branch is selected."
     ]
-},
-
-{
-    title: "My website won't deploy",
-    category: "coding",
-    description: "Check your deployment settings and project files.",
-    keywords: [
-        "website","deploy","deployment",
-        "hosting","github","pages",
-        "coding","code","publish"
-    ],
-    steps: [
-        "Check that your main HTML file is named index.html.",
-        "Check your repository for errors.",
-        "Check your hosting settings.",
-        "Make sure your latest changes were committed.",
-        "Wait for the deployment process to finish."
-    ]
-},
-
-{
-    title: "I get an undefined error",
-    category: "coding",
-    description: "Find where an undefined value is coming from.",
-    keywords: [
-        "undefined","javascript","js",
-        "error","coding","code",
-        "variable","null"
-    ],
-    steps: [
-        "Read the full error message.",
-        "Find the line number.",
-        "Check whether the variable exists.",
-        "Check spelling and capitalization.",
-        "Check whether the value is created before it is used."
-    ]
-},
-
-{
-    title: "My API isn't working",
-    category: "coding",
-    description: "Check the request, URL, and response.",
-    keywords: [
-        "api","coding","code",
-        "request","json","fetch",
-        "server","endpoint"
-    ],
-    steps: [
-        "Check the API URL.",
-        "Check the browser Console.",
-        "Check the Network tab in Developer Tools.",
-        "Check whether the request returns an error.",
-        "Check that your request method and parameters are correct."
-    ]
 }
 
 ];
 
 
 /* =========================================================
-   SEARCH SYNONYMS
+   SEARCH
 ========================================================= */
 
 const synonyms = {
@@ -1834,22 +2053,6 @@ const synonyms = {
         "connection","network"
     ],
 
-    disconnect: [
-        "disconnect","disconnecting",
-        "dropping","drops","drop",
-        "unstable"
-    ],
-
-    charge: [
-        "charge","charging",
-        "charger","power"
-    ],
-
-    battery: [
-        "battery","power","charge",
-        "charging","drain","draining"
-    ],
-
     game: [
         "game","gaming","gameplay"
     ],
@@ -1864,45 +2067,14 @@ const synonyms = {
         "javascript","js","script"
     ],
 
-    python: [
-        "python","py"
-    ],
-
-    css: [
-        "css","style","styling"
-    ],
-
-    html: [
-        "html","webpage","website"
-    ],
-
-    website: [
-        "website","web","site","page"
-    ],
-
-    error: [
-        "error","broken","problem",
-        "issue","bug"
-    ],
-
     phone: [
         "phone","mobile",
         "iphone","android"
     ],
 
-    hot: [
-        "hot","heating",
-        "overheat","overheating"
-    ],
-
     bluetooth: [
         "bluetooth","wireless",
         "headphones","earbuds"
-    ],
-
-    controller: [
-        "controller","gamepad",
-        "xbox","playstation","ps5","ps4"
     ]
 
 };
@@ -1910,15 +2082,22 @@ const synonyms = {
 
 function getRelatedWords(word) {
 
-    for (const group in synonyms) {
+    for (
+        const group in synonyms
+    ) {
 
-        if (synonyms[group].includes(word)) {
+        if (
+            synonyms[group].includes(word)
+        ) {
+
             return synonyms[group];
+
         }
 
     }
 
     return [word];
+
 }
 
 
@@ -1953,7 +2132,8 @@ function searchProblems() {
         .replace(/[^\w\s-]/g,"")
         .split(/\s+/)
         .filter(
-            word => word.length > 1
+            word =>
+                word.length > 1
         );
 
 
@@ -2023,8 +2203,8 @@ function searchProblems() {
 
 
                 return {
-                    problem: problem,
-                    score: score
+                    problem,
+                    score
                 };
 
             }
@@ -2089,7 +2269,9 @@ function displayProblems(
 ) {
 
     const container =
-        document.getElementById("problems");
+        document.getElementById(
+            "problems"
+        );
 
 
     container.innerHTML =
@@ -2125,7 +2307,9 @@ function displayProblems(
 
                 <p>
                     Example:
-                    <strong>bluetooth headphones won't connect</strong>
+                    <strong>
+                        bluetooth headphones won't connect
+                    </strong>
                 </p>
 
             </div>
@@ -2161,7 +2345,9 @@ function displayProblems(
 
             div.onclick =
                 function() {
+
                     showSolution(problem);
+
                 };
 
 
@@ -2193,22 +2379,32 @@ function showSolution(problem) {
     document.querySelector(".how")
         .style.display = "none";
 
+    document.querySelector(".about")
+        .style.display = "none";
+
+    document.querySelector(".contact")
+        .style.display = "none";
+
     document.getElementById("solution")
         .style.display = "block";
 
 
-    document.getElementById("solutionTitle")
-        .innerText =
+    document.getElementById(
+        "solutionTitle"
+    ).innerText =
         problem.title;
 
 
-    document.getElementById("solutionDescription")
-        .innerText =
+    document.getElementById(
+        "solutionDescription"
+    ).innerText =
         problem.description;
 
 
     const steps =
-        document.getElementById("steps");
+        document.getElementById(
+            "steps"
+        );
 
 
     steps.innerHTML = "";
@@ -2246,7 +2442,10 @@ function showSolution(problem) {
     );
 
 
-    window.scrollTo(0,0);
+    window.scrollTo(
+        0,
+        0
+    );
 
 }
 
@@ -2270,7 +2469,9 @@ function feedback(answer) {
         message.innerText =
             "Thanks! We're glad FixIt helped. ❤️";
 
-    } else {
+    }
+
+    else {
 
         message.innerText =
             "Thanks! We'll keep improving FixIt.";
@@ -2286,8 +2487,9 @@ function feedback(answer) {
 
 function goBack() {
 
-    document.getElementById("solution")
-        .style.display = "none";
+    document.getElementById(
+        "solution"
+    ).style.display = "none";
 
 
     document.querySelector(".hero")
@@ -2302,13 +2504,24 @@ function goBack() {
         .style.display = "block";
 
 
-    window.scrollTo(0,0);
+    document.querySelector(".about")
+        .style.display = "block";
+
+
+    document.querySelector(".contact")
+        .style.display = "block";
+
+
+    window.scrollTo(
+        0,
+        0
+    );
 
 }
 
 
 /* =========================================================
-   INITIAL DISPLAY
+   START
 ========================================================= */
 
 displayProblems(
