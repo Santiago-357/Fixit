@@ -806,6 +806,26 @@ footer strong {
         display: block;
     }
 
+   body.dark-mode {
+  background: #111827;
+  color: #f3f4f6;
+}
+
+body.dark-mode header {
+  background: #1f2937;
+}
+
+body.dark-mode .card,
+body.dark-mode .search-results,
+body.dark-mode .problem-card {
+  background: #1f2937;
+  color: #f3f4f6;
+}
+
+body.dark-mode p,
+body.dark-mode span {
+  color: #d1d5db;
+}
 }</style>
 
 </head>
@@ -2605,6 +2625,9 @@ function toggleMenu() {
 
     nav.classList.toggle("open");
 }</script>
+   <button id="darkModeToggle" onclick="document.body.classList.toggle('dark-mode')">
+  🌙 Dark Mode
+</button>
 
 </body>
 
