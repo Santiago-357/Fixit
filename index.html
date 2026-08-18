@@ -2248,8 +2248,11 @@ function searchProblems() {
                     score += 10;
 
                 }
+               
 
-
+if (searchableText.includes(input)) {
+    score += 15;
+}
                 return {
                     problem,
                     score
