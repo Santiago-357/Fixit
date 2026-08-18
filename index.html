@@ -806,27 +806,28 @@ footer strong {
         display: block;
     }
 
-   body.dark-mode {
-  background: #111827;
-  color: #f3f4f6;
+body.dark-mode {
+  background: #111827 !important;
+  color: white !important;
 }
 
-body.dark-mode header {
-  background: #1f2937;
-}
-
+body.dark-mode header,
+body.dark-mode section,
 body.dark-mode .card,
 body.dark-mode .search-results,
 body.dark-mode .problem-card {
-  background: #1f2937;
-  color: #f3f4f6;
+  background: #1f2937 !important;
+  color: white !important;
 }
 
 body.dark-mode p,
-body.dark-mode span {
-  color: #d1d5db;
+body.dark-mode span,
+body.dark-mode h1,
+body.dark-mode h2,
+body.dark-mode h3 {
+  color: white !important;
 }
-}</style>
+</style>
 
 </head>
 
@@ -2628,9 +2629,7 @@ function toggleMenu() {
 
     nav.classList.toggle("open");
 }</script>
-   <button id="darkModeToggle" onclick="document.body.classList.toggle('dark-mode')">
-  🌙 Dark Mode
-</button>
+
 <section id="customize" style="padding:120px 20px; text-align:center; scroll-margin-top:100px;">
   <h2>🎨 Customize FixIt</h2>
   <p>Make FixIt look the way you like.</p>
@@ -2640,13 +2639,16 @@ function toggleMenu() {
       🌙 Dark Mode
     </button>
 
-    <button onclick="document.body.style.fontSize='18px'">
-      🔤 Bigger Text
-    </button>
+  <label for="textSize">🔤 Text Size</label>
 
-    <button onclick="document.body.style.fontSize='16px'">
-      ↩️ Normal Text
-    </button>
+<input
+  type="range"
+  id="textSize"
+  min="12"
+  max="28"
+  value="16"
+  oninput="document.body.style.fontSize = this.value + 'px'"
+>
   </div>
 </section>
 </body>
